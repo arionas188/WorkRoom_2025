@@ -1,0 +1,31 @@
+html {
+    font-family: 'Roboto', 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Roboto', 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+    min-height: 100vh; /* Εξασφαλίζει ότι το site έχει τουλάχιστον το ύψος της οθόνης */
+
+}
+
+custom {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  custom::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('/images/sinetairismos__logo_background.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    opacity: 0.1; /* πιο διακριτικό */
+    z-index: 0;
+  }
+  
+  custom > * {
+    position: relative;
+    z-index: 10;
+  }
