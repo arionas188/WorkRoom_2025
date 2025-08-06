@@ -1,10 +1,26 @@
+/* TailwindCSS default breakpoints:
+// sm:    640px
+// md:    768px
+// lg:    1024px
+// xl:   1280px
+// 2xl:  1536px */
+
 html {
-    font-family: 'Roboto', 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
-    scroll-behavior: smooth;
+}
+
+body::before {
+  content: attr(data-width) "px";
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: black;
+  color: lime;
+  padding: 5px;
+  z-index: 9999;
+  font-family: monospace;
 }
 body {
-    font-family: 'Roboto', 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
-    min-height: 100vh; /* Εξασφαλίζει ότι το site έχει τουλάχιστον το ύψος της οθόνης */
+  font-family: 'Geologica';    min-height: 100vh; /* Εξασφαλίζει ότι το site έχει τουλάχιστον το ύψος της οθόνης */
 
 }
 
