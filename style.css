@@ -45,3 +45,25 @@ custom {
     position: relative;
     z-index: 10;
   }
+
+  #goTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    z-index: 99;
+    background-color: rgba(128, 128, 128, 0.8); /* Γκρι με διαφάνεια */
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Σκιά για βάθος */
+    font-size: 18px;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+#goTopBtn:hover {
+    background-color: rgba(100, 100, 100, 0.9); /* Σκούροτερο γκρι στο hover */
+}
