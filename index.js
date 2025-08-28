@@ -37,3 +37,5 @@ function typeWriter(elementId, text, speed, callback) {
     // μετά γράφεται το p
     typeWriter("typewriter-p", "Architecture & Design", 100);
   });
+
+
