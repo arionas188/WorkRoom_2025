@@ -8,19 +8,9 @@
 html {
 }
 
-body::before {
-  content: attr(data-width) "px";
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: black;
-  color: lime;
-  padding: 5px;
-  z-index: 9999;
-  font-family: monospace;
-}
+
 body {
-  font-family: 'Geologica';    min-height: 100vh; /* Εξασφαλίζει ότι το site έχει τουλάχιστον το ύψος της οθόνης */
+  font-family: 'Geologica';    
 
 }
 
