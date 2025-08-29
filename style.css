@@ -59,3 +59,15 @@ custom {
 }
 
 /* goTopBtn - End */
+
+/* Custom cursor on hover across the page */
+body:hover,
+body *:hover {
+  cursor: url('images/logo_V_24.png') 0 0, url('images/logo_W.png') 12 12, pointer;
+}
+
+/* Smooth scroll-into-view animations - hide until animated (prevents flicker) */
+.animate-on-scroll:not(.animate__animated) {
+  opacity: 0;
+  will-change: transform, opacity;
+}
