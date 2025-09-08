@@ -29,8 +29,33 @@
     <meta name="twitter:title" content="Pharmacy Interior Design Project | WorkRoom W" />
     <meta name="twitter:description" content="Explore our pharmacy interior design project with modern aesthetics and efficient layouts." />
     <meta name="twitter:image" content="https://yourdomain.com/images/pharmacy_project2_cover.jpg" />
-    <!-- Favicon -->
-    <link rel="icon" href="https://yourdomain.com/favicon.ico" type="image/x-icon" />  <!-- diorthosi -->
+
+    <meta name="apple-mobile-web-app-title" content="WorkRoom" />
+    <link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96" />
+    <link rel="shortcut icon" href="images/favicons/favicon.ico" />
+    <!-- Κλασικό favicon για browsers -->
+    <link rel="icon" href="images/favicons/favicon.ico" sizes="any">
+    <!-- SVG favicon για browsers που υποστηρίζουν SVG -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <!-- PNG favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <!-- Apple touch icon για iOS -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+    <!-- Manifest για PWA -->
+    <link rel="manifest" href="images/favicons/site.webmanifest">
+    <!-- Microsoft tile (Windows) -->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Επιπλέον προαιρετικά meta για SEO και κοινωνικά δίκτυα -->
+    <meta property="og:title" content="WorkRoom W - Architecture & Design">
+    <meta property="og:description" content="Αυτό είναι το site μου με όλα τα favicon.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.to-site-mou.gr/">
+    <meta property="og:image" content="/favicon-512x512.png">
+
     <!-- Preload cover image for performance -->
     <link rel="preload" href="https://yourdomain.com/Project2/Pharmacy_1_WorkRoomW.jpg" as="image" />
     <!-- link for Tailwindcss v4.1 -->
@@ -140,21 +165,7 @@
         <!-- img1 Center -->
         <div class="flex flex-col-reverse md:px-15 lg:px-15 2xl:grid 2xl:grid-cols-5 2xl:gap-4">
           <div class="p-5 sm:flex sm:flex-col sm:justify-center md:flex md:flex-row md:justify-center xl:flex xl:justify-center 2xl:flex 2xl:justify-center 2xl:col-start-2 2xl:col-end-5">
-            <img
-            src="Project2/Pharmacy_1_WorkRoomW-2013.jpg"
-            srcset="
-              Project2/Pharmacy_1_WorkRoomW-1006.jpg 1006w,
-              Project2/Pharmacy_1_WorkRoomW-2013.jpg 2013w,
-              Project2/Pharmacy_1_WorkRoomW-3019.jpg 3019w,
-              Project2/Pharmacy_1_WorkRoomW-4025.jpg 4025w
-            "
-            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-            loading="lazy"
-            decoding="async"
-            alt="Pharmacy - Papadopoulou Rodanthi - workspace – WorkRoomW"
-            class="max-h-[75vh] max-w-80 rounded-xl shadow-xl/30 my-4 animate-on-scroll"
-            data-animate="animate__slideInDown"
-            />
+            <img loading="lazy" class="max-h-[75vh] rounded-xl rounded-xl shadow-xl/30  animate-on-scroll" data-animate="slideInDown" src="Project2/Pharmacy_1_WorkRoomW.jpg" alt="Pharmacy - Papadopoulou Rodanthi - workspace – WorkRoomW"/>
           </div>
           <!-- Title -->
           <div class="flex flex-col items-center justify-center py-12">
@@ -185,201 +196,33 @@
         <!-- img 2 left -->
         <div class="p-5 md:px-15 lg:px-15 2xl:grid 2xl:grid-cols-5 2xl:gap-4 ">
           <div class="sm:flex sm:flex-col sm:justify-center md:flex md:flex-row md:justify-start lg:flex lg:flex-row  lg:justify-start xl:flex xl:flex-row xl:justify-start 2xl:col-start-2 2xl:col-end-4 2xl:flex  2xl:justify-start">
-            <img
-            src="Project2/Pharmacy_2_WorkRoomW-2013.jpg"
-            srcset="
-              Project2/Pharmacy_2_WorkRoomW-1006.jpg 1006w,
-              Project2/Pharmacy_2_WorkRoomW-2013.jpg 2013w,
-              Project2/Pharmacy_2_WorkRoomW-3019.jpg 3019w,
-              Project2/Pharmacy_2_WorkRoomW-4025.jpg 4025w
-            "
-            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-            loading="lazy"
-            decoding="async"
-            alt="Pharmacy - Papadopoulou Rodanthi - workspace – WorkRoomW"
-            class="max-h-[75vh] max-w-80 rounded-xl shadow-xl/30 my-4 animate-on-scroll"
-            data-animate="animate__slideInLeft"
-            />
+            <img loading="lazy" class=" max-h-[75vh] rounded-xl shadow-xl/30  animate-on-scroll" data-animate="slideInLeft" src="Project2/Pharmacy_2_WorkRoomW.jpg" alt="Pharmacy - Papadopoulou Rodanthi - workspace – WorkRoomW"/>
           </div>
         </div>
         <!-- img 3 right -->
         <div class="p-5  md:px-15 lg:px-15 2xl:grid 2xl:grid-cols-5 2xl:gap-4">
           <div class="sm:flex sm:flex-col sm:justify-center md:flex md:flex-row md:justify-end lg:flex lg:flex-row lg:justify-end xl:flex xl:justify-end  2xl:col-start-3 2xl:col-end-5 2xl:flex 2xl:justify-end  ">
-            <img
-            src="Project2/Pharmacy_3_WorkRoomW-2013.jpg"
-            srcset="
-              Project2/Pharmacy_3_WorkRoomW-1006.jpg 1006w,
-              Project2/Pharmacy_3_WorkRoomW-2013.jpg 2013w,
-              Project2/Pharmacy_3_WorkRoomW-3019.jpg 3019w,
-              Project2/Pharmacy_3_WorkRoomW-4025.jpg 4025w
-            "
-            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-            loading="lazy"
-            decoding="async"
-            alt="Pharmacy - Papadopoulou Rodanthi - workspace – WorkRoomW"
-            class="max-h-[75vh] max-w-80 rounded-xl shadow-xl/30 my-4 animate-on-scroll"
-            data-animate="animate__slideInRight"
-            />          
+            <img loading="lazy" class="max-h-[75vh] rounded-xl shadow-xl/30 animate-on-scroll" data-animate="slideInRight" src="Project2/Pharmacy_3_WorkRoomW.jpg" />
           </div>
         </div>
         <!-- img 4 center  -->
         <div class="p-5 md:px-15 lg:px-15 2xl:grid 2xl:grid-cols-5 2xl:gap-4 ">
-          <div class="flex flex-col justify-start items-center sm:flex sm:flex-col sm:justify-center sm:items-center md:flex md:flex-col md:justify-center md:items-center lg:flex lg:flex-col lg:justify-center lg:items-center xl:flex xl:flex-row xl:justify-between 2xl:col-start-2 2xl:col-end-5 2xl:flex 2xl:justify-between">
-            <!-- img 1 -->
-            <picture>
-              <source
-                type="image/avif"
-                srcset="
-                  Project2/Pharmacy_5_WorkRoomW-1006.avif 1006w,
-                  Project2/Pharmacy_5_WorkRoomW-2013.avif 2013w,
-                  Project2/Pharmacy_5_WorkRoomW-3019.avif 3019w,
-                  Project2/Pharmacy_5_WorkRoomW-4025.avif 4025w
-                "
-                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-              />
-              <source
-                type="image/webp"
-                srcset="
-                  Project2/Pharmacy_5_WorkRoomW-1006.webp 1006w,
-                  Project2/Pharmacy_5_WorkRoomW-2013.webp 2013w,
-                  Project2/Pharmacy_5_WorkRoomW-3019.webp 3019w,
-                  Project2/Pharmacy_5_WorkRoomW-4025.webp 4025w
-                "
-                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-              />
-              <img
-                src="Project2/Pharmacy_5_WorkRoomW-2013.jpg"
-                srcset="
-                  Project2/Pharmacy_5_WorkRoomW-1006.jpg 1006w,
-                  Project2/Pharmacy_5_WorkRoomW-2013.jpg 2013w,
-                  Project2/Pharmacy_5_WorkRoomW-3019.jpg 3019w,
-                  Project2/Pharmacy_5_WorkRoomW-4025.jpg 4025w
-                "
-                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                loading="lazy"
-                decoding="async"
-                alt="Pharmacy - Papadopoulou Rodanthi - workspace – WorkRoomW"
-                class="max-h-[75vh] max-w-80 rounded-xl shadow-xl/30 my-4 animate-on-scroll"
-                data-animate="animate__zoomIn"
-              />
-            </picture>
-            <!-- img 2 -->
-            <picture>
-              <source
-                type="image/avif"
-                srcset="
-                  Project2/Pharmacy_4_WorkRoomW-1006.avif 1006w,
-                  Project2/Pharmacy_4_WorkRoomW-2013.avif 2013w,
-                  Project2/Pharmacy_4_WorkRoomW-3019.avif 3019w,
-                  Project2/Pharmacy_4_WorkRoomW-4025.avif 4025w
-                "
-                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-              />
-              <source
-                type="image/webp"
-                srcset="
-                  Project2/Pharmacy_4_WorkRoomW-1006.webp 1006w,
-                  Project2/Pharmacy_4_WorkRoomW-2013.webp 2013w,
-                  Project2/Pharmacy_4_WorkRoomW-3019.webp 3019w,
-                  Project2/Pharmacy_4_WorkRoomW-4025.webp 4025w
-                "
-                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-              />
-              <img
-                src="Project2/Pharmacy_4_WorkRoomW-2013.jpg"
-                srcset="
-                  Project2/Pharmacy_4_WorkRoomW-1006.jpg 1006w,
-                  Project2/Pharmacy_4_WorkRoomW-2013.jpg 2013w,
-                  Project2/Pharmacy_4_WorkRoomW-3019.jpg 3019w,
-                  Project2/Pharmacy_4_WorkRoomW-4025.jpg 4025w
-                "
-                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                loading="lazy"
-                decoding="async"
-                alt="Pharmacy - Papadopoulou Rodanthi - workspace – WorkRoomW"
-                class="max-h-[75vh] max-w-80 rounded-xl shadow-xl/30 my-4 animate-on-scroll"
-                data-animate="slideInLeft"
-              />
-            </picture>
-            <!-- img 3 -->
-            <picture>
-              <source
-              type="image/avif"
-              srcset="
-              Project2/Pharmacy_7_WorkRoomW-1006.avif 1006w,
-              Project2/Pharmacy_7_WorkRoomW-2013.avif 2013w,
-              Project2/Pharmacy_7_WorkRoomW-3019.avif 3019w,
-              Project2/Pharmacy_7_WorkRoomW-4025.avif 4025w
-              "
-              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-              />
-              <source
-              type="image/webp"
-              srcset="
-              Project2/Pharmacy_7_WorkRoomW-1006.webp 1006w,
-              Project2/Pharmacy_7_WorkRoomW-2013.webp 2013w,
-              Project2/Pharmacy_7_WorkRoomW-3019.webp 3019w,
-              Project2/Pharmacy_7_WorkRoomW-4025.webp 4025w
-              "
-              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-              />
-              <img
-                          src="Project2/Pharmacy_7_WorkRoomW-2013.jpg"
-                          srcset="
-                            Project2/Pharmacy_7_WorkRoomW-1006.jpg 1006w,
-                            Project2/Pharmacy_7_WorkRoomW-2013.jpg 2013w,
-                            Project2/Pharmacy_7_WorkRoomW-3019.jpg 3019w,
-                            Project2/Pharmacy_7_WorkRoomW-4025.jpg 4025w
-                          "
-                          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                          loading="lazy"
-                          decoding="async"
-                          alt="Pharmacy - Papadopoulou Rodanthi - workspace – WorkRoomW"
-                          class="max-h-[75vh] max-w-80 rounded-xl shadow-xl/30 my-4 animate-on-scroll"
-                          data-animate="slideInRight"
-              />
-            </picture>
-          
-          </div>
+              <div class="flex flex-col justify-start items-center sm:flex sm:flex-col sm:justify-center sm:items-center md:flex md:flex-col md:justify-center md:items-center lg:flex lg:flex-col lg:justify-center lg:items-center xl:flex xl:flex-row xl:justify-between 2xl:col-start-2 2xl:col-end-5 2xl:flex 2xl:justify-between">
+                <img loading="lazy" class="max-h-[75vh] max-w-80 rounded-xl shadow-xl/30 my-4 animate-on-scroll" data-animate="animate__zoomIn" src="Project2/Pharmacy_5_WorkRoomW.jpg" alt="Pharmacy - Papadopoulou Rodanthi - workspace – WorkRoomW"/>
+                <img loading="lazy" class="max-h-[75vh] max-w-80 rounded-xl shadow-xl/30 my-4 animate-on-scroll" data-animate="slideInLeft" src="Project2/Pharmacy_4_WorkRoomW.jpg" alt="Pharmacy - Papadopoulou Rodanthi - workspace – WorkRoomW"/>
+                <img loading="lazy" class="max-h-[75vh] max-w-80 rounded-xl shadow-xl/30 my-4 animate-on-scroll" data-animate="slideInRight" src="Project2/Pharmacy_7_WorkRoomW.jpg" alt="Pharmacy - Papadopoulou Rodanthi - workspace – WorkRoomW"/>
+              </div>
         </div>
         <!-- img 6 left -->
         <div class="p-5 md:px-15 lg:px-15 2xl:grid 2xl:grid-cols-5 2xl:gap-4">
           <div class="sm:flex sm:flex-col sm:justify-center md:flex md:flex-row md:justify-start xl:flex xl:flex-row xl:justify-start 2xl:col-start-3 2xl:col-end-5 2xl:flex 2xl:justify-start">
-            <img
-            src="Project2/Pharmacy_6_WorkRoomW-2013.jpg"
-            srcset="
-              Project2/Pharmacy_6_WorkRoomW-1006.jpg 1006w,
-              Project2/Pharmacy_6_WorkRoomW-2013.jpg 2013w,
-              Project2/Pharmacy_6_WorkRoomW-3019.jpg 3019w,
-              Project2/Pharmacy_6_WorkRoomW-4025.jpg 4025w
-            "
-            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-            loading="lazy"
-            decoding="async"
-            alt="Pharmacy - Papadopoulou Rodanthi - workspace – WorkRoomW"
-            class="max-h-[75vh] max-w-80 rounded-xl shadow-xl/30 my-4 animate-on-scroll"
-            data-animate="animate__slideInLeft"
-            />
+            <img loading="lazy" class="max-h-[75vh] rounded-xl rounded-xl shadow-xl/30 animate-on-scroll" data-animate="slideInLeft" src="Project2/Pharmacy_6_WorkRoomW.jpg" alt="Pharmacy - Papadopoulou Rodanthi - workspace – WorkRoomW"/>
           </div>
         </div> 
         <!-- img 8 center -->
         <div class="p-5 md:px-15 lg:px-15 2xl:grid 2xl:grid-cols-5 2xl:gap-4">
           <div class="sm:flex sm:flex-col sm:justify-center md:flex md:flex-row md:justify-center xl:flex xl:justify-center 2xl:col-start-2 2xl:col-end-5 2xl:flex 2xl:justify-center">
-            <img
-            src="Project2/Pharmacy_8_WorkRoomW-2013.jpg"
-            srcset="
-              Project2/Pharmacy_8_WorkRoomW-1006.jpg 1006w,
-              Project2/Pharmacy_8_WorkRoomW-2013.jpg 2013w,
-              Project2/Pharmacy_8_WorkRoomW-3019.jpg 3019w,
-              Project2/Pharmacy_8_WorkRoomW-4025.jpg 4025w
-            "
-            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-            loading="lazy"
-            decoding="async"
-            alt="Pharmacy - Papadopoulou Rodanthi - workspace – WorkRoomW"
-            class="max-h-[75vh] max-w-80 rounded-xl shadow-xl/30 my-4 animate-on-scroll"
-            data-animate="animate__slideInRight"
-            />
+            <img loading="lazy" class="max-h-[75vh]  rounded-xl shadow-xl/30 animate-on-scroll" data-animate="slideInRight" src="Project2/Pharmacy_8_WorkRoomW.jpg" alt="Pharmacy - Papadopoulou Rodanthi - workspace – WorkRoomW" />
           </div>
         </div>
         <!-- img 5 left
