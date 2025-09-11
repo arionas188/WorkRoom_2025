@@ -56,3 +56,10 @@ body *:hover {
   border-width: 2px;
   border-color: rgb(133, 204, 209);
 }
+
+.custom-footer-border {
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgb(133, 204, 209);
+  border-radius: 2rem;
+}
