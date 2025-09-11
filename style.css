@@ -63,3 +63,7 @@ body *:hover {
   border-color: rgb(133, 204, 209);
   border-radius: 2rem;
 }
+
+.custom-color-footer-line {
+  color:#85ccd1;
+}
