@@ -57,12 +57,19 @@ body *:hover {
   border-color: rgb(133, 204, 209);
 }
 
-.custom-footer-border {
-  border-style: solid;
-  border-width: 2px;
-  border-color: rgb(133, 204, 209);
-  border-radius: 2rem;
+
+.custom-footer-border-bottom {
+  border-bottom: 2px solid rgb(133, 204, 209); /* μόνο κάτω με το χρώμα σου */
+  border-bottom-left-radius: 2rem;  /* στρογγυλή κάτω αριστερά */
+  border-bottom-right-radius: 2rem; /* στρογγυλή κάτω δεξιά */
+
 }
+.custom-footer-border-top {
+  border-top-left-radius: 2rem;  /* στρογγυλή κάτω αριστερά */
+  border-top-right-radius: 2rem; /* στρογγυλή κάτω δεξιά */
+
+}
+
 
 .custom-color-footer-line {
   color:#85ccd1;
