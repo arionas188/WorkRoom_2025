@@ -57,9 +57,9 @@ body *:hover {
   border-color: rgb(133, 204, 209);
 }
 
-
+/* border for realative projects to bottom of the site*/
 .custom-footer-border-bottom {
-  border-bottom: 2px solid rgb(133, 204, 209); /* μόνο κάτω με το χρώμα σου */
+  border-bottom: 3px solid rgb(133, 204, 209); /* μόνο κάτω με το χρώμα σου */
   border-bottom-left-radius: 2rem;  /* στρογγυλή κάτω αριστερά */
   border-bottom-right-radius: 2rem; /* στρογγυλή κάτω δεξιά */
 

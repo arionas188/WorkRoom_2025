@@ -79,37 +79,31 @@
 </head>
 
 <body >
-
   <header class="absolute inset-x-0 top-0 z-50 ">
-
+    <!-- Desktop - Menu - START -->
     <nav aria-label="Global" class=" grid grid-cols-2 md:grid-cols-4 p-7 px-7   ">
-
         <div class="flex ">
           <a href="#" class="-m-1.5 p-1.5">
             <span class="sr-only">Your Company</span>
             <img src="images/logo_V.png" alt="" class="h-8 w-auto" />
           </a>
         </div>
-
         <div class="hidden md:flex justify-center col-span-2 gap-4">
           <a href="projects.html" class="text-sm/6 font-semibold text-gray-900">PROJECTS</a>
           <a href="news.html" class="text-sm/6 font-semibold text-gray-900">NEWS</a>
           <a href="#about-us" class="text-sm/6 font-semibold text-gray-900">ABOUT US</a>
-          <a href="#company" class="text-sm/6 font-semibold text-gray-900">COMPANY</a>
+          <a href="#services" class="text-sm/6 font-semibold text-gray-900">SERVICES</a>
         </div>
-
-      <div class="flex justify-end md:hidden">
-        <button type="button" command="show-modal" commandfor="mobile-menu" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-black-500">
-          <span class="sr-only">Open main menu</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
-            <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </button>
-      </div>
-
-
+        <div class="flex justify-end md:hidden">
+          <button type="button" command="show-modal" commandfor="mobile-menu" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-black-500">
+            <span class="sr-only">Open main menu</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
+              <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
     </nav>
-
+    <!-- Desktop - Menu - START -->
     <!-- Mobile-Menu - START -->
     <el-dialog>
       <dialog id="mobile-menu" class="backdrop:bg-transparent lg:hidden">
@@ -133,7 +127,7 @@
                   <a href="projects.html" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">PROJECTS</a>
                   <a href="news.html" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">NEWS</a>
                   <a href="#about-us" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">ABOUT US</a>
-                  <a href="#company" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">COMPANY</a>
+                  <a href="#services" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">SERVICES</a>
               </div>
               </div>
             </div>
@@ -143,13 +137,8 @@
     </el-dialog>
     <!-- Mobile-Menu - END -->
   </header>
-
-
   <main class="h-auto ">
-    <!-- Include this script tag or install `@tailwindplus/elements` via npm: -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script> -->
-    <!-- Include this script tag or install `@tailwindplus/elements` via npm: -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script> -->
+    <!-- WorkRoom Hero Logo START -->
     <section id="workroom-logo-section" class="flex flex-col items-center justify-center h-screen">
       <img class="w-1/4" src="images/logo_W.png" alt="WorkRoom Logo - Architecture & Design - Larisa"/>
       <h1 class="min-h-[1.4em] text-3xl md:text-4xl lg:text-5xl xl:text-6xl pt-12 text-shadow-lg/20">
@@ -161,8 +150,14 @@
         <span id="typewriter-p" aria-hidden="true"></span>
       </p>
     </section>
-
+    <!-- WorkRoom Hero Logo END -->
+    <!-- About us - START -->
     <section id="about-us" class="h-auto  ">
+
+    </section>
+    <!-- About us - END -->
+    <!-- Services - START -->
+    <section id="services" class="h-auto  ">
       <div class="-z-50 h-96">
         <img src="images/services.jpg" alt="background image for services" class="brightness-50 -z-50 size-full object-cover object-center" >
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -195,23 +190,13 @@
       </div>
 
     </section>
-
-
-    <section>
-      
-    </section>
-
-
-
-      
-
-      
+    <!-- Services - END -->
   
 
     <button id="goTopBtn" title="Go to Top">Top</button>
 
   </main>
-  <footer class="h-auto m-4 p-2  shadow-xl/20 custom-footer-border-top custom-footer-border-bottom bg-[radial-gradient(circle_at_center,_rgb(209,210,211)_10%,_white_90%)]" >
+  <footer class="h-auto m-4 p-2  shadow-xl/20 custom-footer-border-top custom-footer-border-bottom bg-[url('/images/pixabay.jpg')] bg-cover bg-center h-fit" >
     <div class=" p-2">
       <div class="flex flex-col justify-start ">
         <!-- Logo Start -->
