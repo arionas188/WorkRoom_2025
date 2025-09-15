@@ -74,6 +74,7 @@
       "keywords": "WorkRoom W - Architecture & Design in Larissa, Greece. Interior design by WorkRoom W"
     }
   </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.min.js"></script>
   
     
 </head>
@@ -139,7 +140,7 @@
   </header>
   <main class="h-auto ">
     <!-- WorkRoom Hero Logo START -->
-    <section id="workroom-logo-section" class="flex flex-col items-center justify-center h-screen">
+    <section id="workroom-logo-section" class="h-screen flex flex-col items-center justify-center h-screen">
       <img class="w-1/4" src="images/logo_W.png" alt="WorkRoom Logo - Architecture & Design - Larisa"/>
       <h1 class="min-h-[1.4em] text-3xl md:text-4xl lg:text-5xl xl:text-6xl pt-12 text-shadow-lg/20">
         <span class="sr-only">WorkRoom</span>
@@ -153,6 +154,7 @@
     <!-- WorkRoom Hero Logo END -->
     <!-- About us - START -->
     <section id="about-us" class="h-fit   ">
+      <!-- Img About Us START -->
       <div class="-z-50 h-96   ">
         <img src="images/about_us_1.jpg" alt="background image for services" class="brightness-50 -z-50 size-full object-cover object-center" >
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -162,9 +164,10 @@
           </div>
         </div>
       </div>
+      <!-- Img About Us END -->
       <div class="relative -top-28 md:-top-36 flex items-center justify-center  md:right-30 z-50 animate-on-scroll " data-animate="slideInLeft">
-        <div class="flex flex-col items-center justify-center h-auto m-6 md:w-1/2  custom-footer-border-top custom-footer-border-bottom rounded-xl shadow-xl/30  custom-footer-border-top custom-footer-border-bottom bg-[radial-gradient(circle_at_center,_rgb(209,210,211)_10%,_white_90%)] brightness-95">
-          
+        <div class="flex flex-col items-center justify-center h-auto m-6 md:w-1/2  custom-footer-border-top custom-footer-border-bottom rounded-xl shadow-xl/30  custom-footer-border-top custom-footer-border-bottom bg-white/50 backdrop-blur-md ">
+          <!-- Logo START -->
           <div class="flex flex-row items-center justify-center w-fit my-4">
             <img src="images/logo_W.png" alt="workroom - logo" class="w-1/4 h-auto ">
             <div class="flex flex-col  ">
@@ -172,22 +175,96 @@
               <p class="text-shadow-lg text-md md:text-xl">Architecture & Design</p>      
             </div>
           </div>
+          <!-- Logo END -->
           <!-- Line START -->
           <div class="border-b-2 custom-color-footer-line w-40  md:w-55 lg:w-55 2xl:w-60 mt-2 mx-auto"></div>
           <!-- Line END -->
+           <!-- Description START -->
           <h2 class="m-12 p-2 text-shadow-md text-center hidden md:block ">To αρχιτεκτονικό γραφείο WorkRoom δραστηριοποιείται από το 2017 στη Λάρισα<br >παρέχοντας υπηρεσίες αρχιτεκτονικής και εσωτερικού σχεδιασμού<br> προσαρμοσμένες στις ανάγκες των πελατών της.
            <br> Στο workroom μία ομάδα αρχιτεκτόνων και συνεργατών<br>αναλαμβάνει έργα που καλύπτουν κάθε στάδιο της διαδικασίας<br>από την αρχική ιδέα μέχρι την παράδοση του έργου.</h2>
           <h2 class="my-8 p-2 text-shadow-md text-center block md:hidden ">To αρχιτεκτονικό γραφείο WorkRoom δραστηριοποιείται από το 2017 στη Λάρισα,παρέχοντας υπηρεσίες αρχιτεκτονικής και εσωτερικού σχεδιασμού προσαρμοσμένες στις ανάγκες των πελατών της.
             <br>Στο workroom μία ομάδα αρχιτεκτόνων και συνεργατών,αναλαμβάνει έργα που καλύπτουν κάθε στάδιο της διαδικασίας,από την αρχική ιδέα μέχρι την παράδοση του έργου.</h2>
-         </div>
-
+          <!--  Description END -->
+        </div>
       </div>
-        
-      
-
-
-      
     </section>
+    <!-- About us - END -->
+
+    <!-- Our Teams - START -->
+    <section id="our-team" class="h-auto bg-[url('images/Our_Team_2.jpg')] bg-cover bg-center brightness-90 mb-12">
+      <!-- Logo START -->
+      <div class="flex flex-row items-center justify-center w-fit ">
+        <img src="images/logo_W.png" alt="workroom - logo" class="w-1/4 h-auto m-2">
+        <div class="flex flex-row m-2 ">
+          <p class="flex justify-center text-shadow-lg/10 font-semibold text-xl md:text-2xl ">Our Team</p>
+        </div>
+      </div>
+      <!-- Logo END -->
+      <!-- Line START -->
+      <div class="border-b-2 custom-color-footer-line w-40  md:w-55 lg:w-55 2xl:w-60 m-2 mx-auto" ></div>
+      <!-- Line END -->
+
+
+      <div class="flex flex-col   ">
+        <!-- MATINA - card - START -->
+        <div class="flex flex-col animate-on-scroll " data-animate="slideInLeft">
+          <div class="h-96 w-auto m-6 rounded-xl shadow-xl/30 custom-footer-border-top custom-footer-border-bottom m-6 bg-white/5 backdrop-blur-md">
+            <div class="flex justify-center ">
+              <div class="m-2" >
+                <img id="profile-img" class="circular-img" src="images/Matina.jpg" alt="">
+              </div>
+              <div class="flex flex-col items-center justify-center m-4 ">
+                <p class="flex justify-center text-center text-shadow-lg/10 font-semibold text-lg md:text-2xl">Boukouvala<br>Matina</p>
+                <p class="text-shadow-lg text-md md:text-xl">Architecture</p>
+                <div class="border-b-2 custom-color-footer-line w-40  md:w-55 lg:w-55 2xl:w-60 mt-2 mx-auto"></div>     
+              </div>
+            </div>
+            <p class="p-2 text-md ">
+              Russell Otten, the Interior Alchemist at Architronix, adds a touch of magic to spaces.
+              With over a decade of experience, Russell blends artistic flair with a deep understanding of client aspirations.
+              Russell Otten, the Interior Alchemist at Architronix, adds a touch of magic to spaces.
+              With over a decade of experience, Russell blends artistic flair with a deep understanding of client aspirations.
+            </p>
+
+          </div>
+        </div>
+        <!-- MATINA - card - END -->
+        <!-- SOFIA - card - START -->
+        <div class="flex flex-col animate-on-scroll " data-animate="slideInRight">
+          <div class="h-96 w-auto m-6 rounded-xl shadow-xl/30 custom-footer-border-top custom-footer-border-bottom m-6 bg-white/5 backdrop-blur-md">
+            <div class="flex justify-center">
+              <div class="m-2" >
+                <img id="profile-img" class="circular-img" src="images/Matina.jpg" alt="">
+              </div>
+              <div class="flex flex-col items-center justify-center m-4">
+                <p class="flex justify-center text-center text-shadow-lg/10 font-semibold text-lg md:text-2xl">Boukouvala<br>Matina</p>
+                <p class="text-shadow-lg text-md md:text-xl">Architecture</p>
+                <div class="border-b-2 custom-color-footer-line w-40  md:w-55 lg:w-55 2xl:w-60 mt-2 mx-auto"></div>     
+              </div>
+            </div>
+            <p class="p-2 text-md ">
+              Russell Otten, the Interior Alchemist at Architronix, adds a touch of magic to spaces.
+              With over a decade of experience, Russell blends artistic flair with a deep understanding of client aspirations.
+              Russell Otten, the Interior Alchemist at Architronix, adds a touch of magic to spaces.
+              With over a decade of experience, Russell blends artistic flair with a deep understanding of client aspirations.
+            </p>
+
+          </div>
+        </div>
+        <!-- SOFIA - card - END -->
+      </div>
+    </section>
+    <!-- Our Teams - END -->
+
+    <!-- Line START -->
+    <div class="border-b-2 custom-color-footer-line w-40  md:w-55 lg:w-55 2xl:w-60 mb-12 mx-auto animate-on-scroll " data-animate="slideInLeft"></div>
+    <!-- Line END -->
+    
+      
+
+
+      
+    
     <!-- About us - END -->
     <!-- Services - START -->
     <section id="services" class="h-auto  ">
@@ -208,7 +285,7 @@
           <p class="text-gray-600 m-10">Our master plans provide a comprehensive look at where an organization is today.</p>
         </div>
         <!--Card 2 -->
-        <div class=" h-96 w-auto m-6 flex flex-col items-center justify-center md:w-fit md:justify-center md:mx-auto rounded-xl shadow-xl/30 custom-footer-border-top custom-footer-border-bottom     bg-[radial-gradient(circle_at_center,_rgb(209,210,211)_10%,_white_90%)] brightness-95">
+        <div class=" h-96 w-auto m-6 flex flex-col items-center justify-center md:w-fit md:justify-center md:mx-auto rounded-xl shadow-xl/30 custom-footer-border-top custom-footer-border-bottom   bg-[radial-gradient(circle_at_center,_rgb(209,210,211)_10%,_white_90%)] brightness-95">
           <span aria-hidden="true" class="inline-block size-12 rounded-full border border-gray-300 m-10"></span>
           <h3 class="text-2xl font-semibold m-5">Planning</h3>
           <p class="text-gray-600 m-10">Our master plans provide a comprehensive look at where an organization is today.</p>
@@ -331,6 +408,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
   <!-- Core theme JS-->
   <script src="index.js" ></script>
+  <script src="viewport-tracker.js" defer></script>
 </body>
 
 </html>
