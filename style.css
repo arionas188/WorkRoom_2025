@@ -70,6 +70,18 @@ body *:hover {
 
 }
 
+.custom-general-border-top {
+  border-top-left-radius: 2rem;  /* στρογγυλή κάτω αριστερά */
+  border-top-right-radius: 2rem; /* στρογγυλή κάτω δεξιά */
+
+}
+.custom-general-border-bottom {
+  border-bottom-left-radius: 2rem;  /* στρογγυλή κάτω αριστερά */
+  border-bottom-right-radius: 2rem; /* στρογγυλή κάτω δεξιά */
+
+}
+
+
 
 .custom-color-footer-line {
   color:#85ccd1;
