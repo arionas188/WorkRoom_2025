@@ -52,9 +52,9 @@ body *:hover {
 }
 /* border for realative projects to bottom of the site*/
 .custom-nav-border {
-  border-style: solid;
-  border-width: 2px;
-  border-color: rgb(133, 204, 209);
+  border-right: 3px solid rgb(133, 204, 209); /* μόνο κάτω με το χρώμα σου */
+  border-top-right-radius: 2rem; /* στρογγυλή κάτω δεξιά */
+  border-bottom-right-radius: 2rem; /* στρογγυλή κάτω δεξιά */
 }
 
 /* border for realative projects to bottom of the site*/
@@ -73,11 +73,21 @@ body *:hover {
 .custom-general-border-top {
   border-top-left-radius: 2rem;  /* στρογγυλή κάτω αριστερά */
   border-top-right-radius: 2rem; /* στρογγυλή κάτω δεξιά */
-
 }
 .custom-general-border-bottom {
   border-bottom-left-radius: 2rem;  /* στρογγυλή κάτω αριστερά */
   border-bottom-right-radius: 2rem; /* στρογγυλή κάτω δεξιά */
+}
+
+
+/* desktop / large screens: από 1024px και άνω και εφαρμοζονται διαφορετικα border στην κατηγορια projects */
+@media (min-width: 1024px) {
+
+  .custom-project-rigth-top-bottom {
+    border-top-right-radius: 2rem; /* στρογγυλή κάτω δεξιά */
+    border-bottom-right-radius: 2rem; /* στρογγυλή κάτω δεξιά */
+    border-top-left-radius: 0rem;  /* στρογγυλή κάτω αριστερά */
+  }
 
 }
 
@@ -86,6 +96,11 @@ body *:hover {
 .custom-color-footer-line {
   color:#85ccd1;
 }
+
+.custom-color-line {
+  color:#85ccd1;
+}
+
 
 .circular-img {
   width: 100px;
