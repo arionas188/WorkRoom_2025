@@ -1,4 +1,4 @@
 OK -> 1) prepei na koitaksw ksana ta div me ta h1 sta projects ksexwrista to kathe ena gia na dw pws mporw na ta ftiaksw kalutera gia na einai responsive.
-2) na teleiopoisw ta site me ta project kai na ftiaksw footer.
-3) na teleiopoisw to SEO apo ta projects.
+OK -> 2) na teleiopoisw ta site me ta project kai na ftiaksw footer.
+OK -> 3) na teleiopoisw to SEO apo ta projects.
 OK -> 4) exw valei sta project1 + project2 ta animation
