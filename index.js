@@ -114,3 +114,7 @@ async function centerFace() {
   
   centerFace();
 // END - face id for circle photo - section our team - 
+
+// allagi automata o xronos
+const yearSpan = document.getElementById('year');
+  yearSpan.textContent = new Date().getFullYear();
