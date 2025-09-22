@@ -36,7 +36,6 @@ body {
 #goTopBtn:hover {
     background-color: rgb(133, 204, 209); /* Σκούροτερο γκρι στο hover */
 }
-
 /* goTopBtn - End */
 
 /* Custom cursor on hover across the page */
@@ -82,26 +81,18 @@ body *:hover {
 
 /* desktop / large screens: από 1024px και άνω και εφαρμοζονται διαφορετικα border στην κατηγορια projects */
 @media (min-width: 1024px) {
-
   .custom-project-rigth-top-bottom {
     border-top-right-radius: 2rem; /* στρογγυλή κάτω δεξιά */
     border-bottom-right-radius: 2rem; /* στρογγυλή κάτω δεξιά */
     border-top-left-radius: 0rem;  /* στρογγυλή κάτω αριστερά */
   }
-
 }
-
-
-
 .custom-color-footer-line {
   color:#85ccd1;
 }
-
 .custom-color-line {
   color:#85ccd1;
 }
-
-
 .circular-img {
   width: 100px;
   height: 100px;
