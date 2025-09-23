@@ -1,0 +1,83 @@
+/** Light color-scheme by default **/
+:root{  
+    --cc-bg: #ffffff; /* Χρώμα background του modal */
+    --cc-primary-color: #2c2f31; /* Κύριο χρώμα κειμένου */
+    --cc-secondary-color: #5e6266; /* Δευτερεύον χρώμα κειμένου */
+
+    --cc-btn-primary-bg: #30363c; /* Background του primary κουμπιού (π.χ. Accept all) */
+    --cc-btn-primary-color: #ffffff; /* Χρώμα κειμένου του primary κουμπιού */
+    --cc-btn-primary-border-color: var(--cc-btn-primary-bg); /* Border του primary κουμπιού */
+    --cc-btn-primary-hover-bg: #000000; /* Background του primary όταν κάνεις hover */
+    --cc-btn-primary-hover-color: #ffffff; /* Χρώμα κειμένου primary όταν κάνεις hover */
+    --cc-btn-primary-hover-border-color: var(--cc-btn-primary-hover-bg); /* Border στο hover του primary κουμπιού */
+
+    --cc-btn-secondary-bg: #eaeff2; /* Background του secondary κουμπιού (π.χ. Reject all) */
+    --cc-btn-secondary-color: var(--cc-primary-color); /* Χρώμα κειμένου του secondary κουμπιού */
+    --cc-btn-secondary-border-color: var(--cc-btn-secondary-bg); /* Border του secondary κουμπιού */
+    --cc-btn-secondary-hover-bg: #d4dae0; /* Background secondary όταν κάνεις hover */
+    --cc-btn-secondary-hover-color: #000000; /* Χρώμα κειμένου secondary στο hover */
+    --cc-btn-secondary-hover-border-color: #d4dae0; /* Border στο hover του secondary */
+
+    --cc-separator-border-color: #f0f4f7; /* Γραμμές-διαχωριστικά στο modal */
+
+    --cc-toggle-on-bg: var(--cc-btn-primary-bg); /* Background toggle όταν είναι ενεργό */
+    --cc-toggle-off-bg: #667481; /* Background toggle όταν είναι απενεργοποιημένο */
+    --cc-toggle-on-knob-bg: #ffffff; /* Χρώμα του “κουμπιού” (knob) όταν είναι ON */
+    --cc-toggle-off-knob-bg: var(--cc-toggle-on-knob-bg); /* Χρώμα knob όταν είναι OFF */
+
+    --cc-toggle-enabled-icon-color: var(--cc-bg);   /* Χρώμα του "ναι" (✔) στο toggle */
+    --cc-toggle-disabled-icon-color: var(--cc-bg);  /* Χρώμα του "όχι" (✘) στο toggle */
+
+    --cc-toggle-readonly-bg: #d5dee2; /* Background toggle που δεν αλλάζει (readOnly) */
+    --cc-toggle-readonly-knob-bg: #fff; /* Χρώμα knob στο readOnly toggle */
+    --cc-toggle-readonly-knob-icon-color: var(--cc-toggle-readonly-bg); /* Χρώμα του icon στο readOnly */
+
+    --cc-section-category-border: var(--cc-cookie-category-block-bg); /* Border γύρω από κατηγορίες */
+
+    --cc-cookie-category-block-bg: #f0f4f7; /* Background block για κατηγορία cookie */
+    --cc-cookie-category-block-border: #f0f4f7; /* Border block για κατηγορία cookie */
+    --cc-cookie-category-block-hover-bg: #e9eff4; /* Background στο hover πάνω σε κατηγορία */
+    --cc-cookie-category-block-hover-border: #e9eff4; /* Border στο hover πάνω σε κατηγορία */
+    --cc-cookie-category-expanded-block-bg: transparent; /* Background όταν είναι expanded */
+    --cc-cookie-category-expanded-block-hover-bg: #dee4e9; /* Hover background όταν είναι expanded */
+
+    --cc-overlay-bg: rgba(0, 0, 0, 0.65); /* Background overlay πίσω από το modal (μαύρο ημιδιαφανές) */
+    --cc-webkit-scrollbar-bg: var(--cc-section-category-border); /* Χρώμα scrollbar (μπάρα κύλισης) */
+    --cc-webkit-scrollbar-hover-bg: var(--cc-btn-primary-hover-bg); /* Χρώμα scrollbar στο hover */
+
+    --cc-footer-bg: var(--cc-btn-secondary-bg); /* Background στο footer του modal */
+    --cc-footer-color: var(--cc-secondary-color); /* Χρώμα κειμένου στο footer */
+    --cc-footer-border-color: #e4eaed; /* Border στο footer */
+}
+  
+  
+  
+  
+#cc-main {
+    --cc-bg: #fdf7f7;                                                    /* Χρώμα background του modal */
+    --cc-text: #050505;                                                  /* κείμενο */
+    --cc-btn-primary-bg: rgb(133, 204, 209);                             /* bg κουμπί primary */
+    --cc-btn-primary-color: #ffffff;                                     /* Χρώμα κειμένου του primary κουμπιού */
+    --cc-btn-primary-hover-color:#ffffff;                                /* Χρώμα κειμένου primary στο hover */
+    --cc-btn-primary-hover-bg: rgb(133, 204, 209);                        /* Background secondary όταν κάνεις hover */
+    --cc-btn-primary-hover-border-color: var(--cc-btn-primary-hover-bg);    /* Border στο hover του primary κουμπιού */
+    --cc-btn-primary-border-color: var(--cc-btn-primary-bg); /* Border του primary κουμπιού */
+
+    --cc-btn-secondary-hover-color:#ffffff;                              /* Χρώμα κειμένου secondary στο hover */
+    --cc-btn-secondary-hover-bg: rgb(133, 204, 209);                        /* Background secondary όταν κάνεις hover */
+    --cc-btn-secondary-color: #ffffff;                                     /* Χρώμα κειμένου του secondary κουμπιού */
+    --cc-btn-secondary-border-color: var(--cc-btn-secondary-bg); /* Border του secondary κουμπιού */
+    --cc-btn-border-radius: 10px;                                        /* στρογγυλάδες */
+    --cc-font-family: 'Geologica', sans-serif;
+
+  
+
+}
+/* START προσαρμοζουμε ποσο fade θα ανοιξει το div των cookies */
+#cc-main,
+#cc-main .cm,
+#cc-main .pm {
+    --cc-modal-transition-duration: 0.9s;   /* πιο αργό fade */
+    --cc-modal-transition-ease: ease-in-out; /* πιο ομαλή καμπύλη */
+}
+/* END προσαρμοζουμε ποσο fade θα ανοιξει το div των cookies */
