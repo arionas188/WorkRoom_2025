@@ -64,14 +64,25 @@ CookieConsent.run({
     // Trigger consent update when user choices change
     onFirstConsent: () => {
         updateGtagConsent();
+        if (CookieConsent.acceptedCategory && CookieConsent.acceptedCategory('analytics')) {
+            gtag('js', new Date());
+            gtag('config', 'G-2SYFJ7QR4Q');
+        }
     },
     onConsent: () => {
         updateGtagConsent();
+        if (CookieConsent.acceptedCategory && CookieConsent.acceptedCategory('analytics')) {
+            gtag('js', new Date());
+            gtag('config', 'G-2SYFJ7QR4Q');
+        }
     },
     onChange: () => {
         updateGtagConsent();
+        if (CookieConsent.acceptedCategory && CookieConsent.acceptedCategory('analytics')) {
+            gtag('js', new Date());
+            gtag('config', 'G-2SYFJ7QR4Q');
+        }
     },
-
     // Configure categories and services
     categories: {
         [CAT_NECESSARY]: {
@@ -129,7 +140,7 @@ CookieConsent.run({
     },
 
     language: {
-        default: 'en',
+        default: 'el',
         translations: {
             en: {
                 // See: https://support.google.com/tagmanager/answer/10718549?hl=en
@@ -201,6 +212,69 @@ CookieConsent.run({
                         {
                             title: 'More information',
                             description: 'For any queries in relation to the policy on cookies and your choices, please <a href="https://www.example.com/contacts">contact us</a>.'
+                        }
+                    ]
+                }
+            },
+            el: {
+                consentModal: {
+                    title: 'Χρησιμοποιούμε cookies',
+                    description: 'Αυτός ο ιστότοπος χρησιμοποιεί απολύτως απαραίτητα cookies για την ορθή λειτουργία του και cookies ανάλυσης για την κατανόηση της αλληλεπίδρασής σας. Τα δεύτερα θα ενεργοποιηθούν μόνο μετά από συγκατάθεση.',
+                    acceptAllBtn: 'Αποδοχή όλων',
+                    acceptNecessaryBtn: 'Απόρριψη όλων',
+                    showPreferencesBtn: 'Διαχείριση προτιμήσεων'
+                },
+                preferencesModal: {
+                    title: 'Διαχείριση προτιμήσεων cookies',
+                    acceptAllBtn: 'Αποδοχή όλων',
+                    acceptNecessaryBtn: 'Απόρριψη όλων',
+                    savePreferencesBtn: 'Αποδοχή τρέχουσας επιλογής',
+                    closeIconLabel: 'Κλείσιμο',
+                    sections: [
+                        {
+                            title: 'Χρήση cookies',
+                            description: 'Χρησιμοποιούμε cookies για βασικές λειτουργίες του ιστότοπου και για τη βελτίωση της εμπειρίας σας.'
+                        },
+                        {
+                            title: 'Απολύτως απαραίτητα cookies',
+                            description: 'Αυτά τα cookies είναι απαραίτητα για τη σωστή λειτουργία του ιστότοπου, π.χ. για αυθεντικοποίηση χρηστών.',
+                            linkedCategory: CAT_NECESSARY,
+                        },
+                        {
+                            title: 'Αναλύσεις',
+                            description: 'Τα cookies ανάλυσης βοηθούν στη συλλογή δεδομένων για την κατανόηση της αλληλεπίδρασης των χρηστών με τον ιστότοπο, ώστε να βελτιώνουμε περιεχόμενο και λειτουργίες.',
+                            linkedCategory: CAT_ANALYTICS,
+                            cookieTable: {
+                                headers: {
+                                    name: 'Όνομα',
+                                    domain: 'Υπηρεσία',
+                                    description: 'Περιγραφή',
+                                    expiration: 'Διάρκεια'
+                                },
+                                body: [
+                                    { name: '_ga', domain: 'Google Analytics', description: 'Cookie του <a href="https://business.safety.google/adscookies/">Google Analytics</a>', expiration: 'Έως 24 μήνες' },
+                                    { name: '_gid', domain: 'Google Analytics', description: 'Cookie του <a href="https://business.safety.google/adscookies/">Google Analytics</a>', expiration: 'Συνεδρία' }
+                                ]
+                            }
+                        },
+                        {
+                            title: 'Διαφήμιση',
+                            description: 'Η Google χρησιμοποιεί cookies για διαφήμιση (προβολή/απόδοση, προσωποποίηση κατά τις ρυθμίσεις σας, περιορισμός συχνότητας, μέτρηση αποτελεσματικότητας).',
+                            linkedCategory: CAT_ADVERTISEMENT,
+                        },
+                        {
+                            title: 'Λειτουργικότητα',
+                            description: 'Cookies λειτουργικότητας υποστηρίζουν θεμελιώδη χαρακτηριστικά, όπως προτιμήσεις (π.χ. γλώσσα) και βελτιστοποιήσεις υπηρεσίας.',
+                            linkedCategory: CAT_FUNCTIONALITY,
+                        },
+                        {
+                            title: 'Ασφάλεια',
+                            description: 'Cookies ασφαλείας πιστοποιούν χρήστες, αποτρέπουν απάτη και προστατεύουν τους χρήστες κατά την αλληλεπίδραση με την υπηρεσία.',
+                            linkedCategory: CAT_SECURITY,
+                        },
+                        {
+                            title: 'Περισσότερες πληροφορίες',
+                            description: 'Για ερωτήσεις σχετικά με την πολιτική cookies και τις επιλογές σας, δείτε την <a href="cookies.html">Πολιτική Cookies</a> ή την <a href="privacy.html">Πολιτική Απορρήτου</a>.'
                         }
                     ]
                 }

@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}    
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        functionality_storage: 'denied',
+        personalization_storage: 'denied',
+        security_storage: 'denied'
+      });
+    </script>
+    <!-- Google tag (gtag.js) - loader μόνο, χωρίς config πριν τη συγκατάθεση -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2SYFJ7QR4Q"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Therapist - Design Project | WorkRoom W - Architecture & Design | Larissa </title>
@@ -273,6 +288,12 @@
         </div>
       </div>
       <!--END Social -->
+      <!-- Cookie settings + Policies -->
+      <div class="flex justify-center gap-4 p-2">
+        <button type="button" data-cc="show-preferencesModal" class="underline">Ρυθμίσεις cookies</button>
+        <a href="cookies.html" class="underline">Πολιτική Cookies</a>
+        <a href="privacy.html" class="underline">Πολιτική Απορρήτου</a>
+      </div>
       <div class="flex flex-col">
         <!-- Text - Get in Touch - Start -->
         <div class=" basis-1/4 flex flex-col">
@@ -331,5 +352,6 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
   <!-- Core theme JS-->
   <script type="module" src="./js/index.js" ></script>
+  <script type="module" src="./js/libraries/cookieconsent-config.js"></script>
 </body>
 </html>
