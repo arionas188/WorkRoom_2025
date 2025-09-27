@@ -38,11 +38,64 @@ body {
 }
 /* goTopBtn - End */
 
-/* Custom cursor on hover across the page */
-body:hover,
-body *:hover {
-  cursor: url('images/logo_v_24.png') 0 0, url('images/logo_W.png') 12 12, pointer;
+/* Floating Cookie Settings Button - Start */
+#cookieSettingsBtn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: none;
+    z-index: 99;
+    background-color: rgba(59, 130, 246, 0.9); /* Blue με διαφάνεια */
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 12px 16px;
+    border-radius: 50px; /* Στρογγυλό */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    min-width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
 }
+
+#cookieSettingsBtn:hover {
+    background-color: rgba(37, 99, 235, 1); /* Σκούροτερο μπλε στο hover */
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+#cookieSettingsBtn .cookie-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+#cookieSettingsBtn .cookie-text {
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+/* Responsive - hide text on mobile, show only icon */
+@media (max-width: 768px) {
+    #cookieSettingsBtn {
+        min-width: 50px;
+        padding: 12px;
+    }
+    
+    #cookieSettingsBtn .cookie-text {
+        display: none;
+    }
+    
+    #cookieSettingsBtn .cookie-icon {
+        margin-right: 0;
+    }
+}
+/* Floating Cookie Settings Button - End */
+
 
 /* Smooth scroll-into-view animations - hide until animated (prevents flicker) */
 .animate-on-scroll:not(.animate__animated) {
