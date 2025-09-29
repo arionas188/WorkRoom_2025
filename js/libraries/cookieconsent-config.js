@@ -284,42 +284,12 @@ CookieConsent.run({
 });
 
 // Floating Cookie Settings Button functionality
-function createFloatingCookieButton() {
-    // Check if button already exists
-    if (document.getElementById('cookieSettingsBtn')) {
+function showFloatingCookieButton() {
+    // Find the existing button in HTML
+    const button = document.getElementById('cookieSettingsBtn');
+    if (!button) {
         return;
     }
-
-    // Create the floating button
-    const button = document.createElement('button');
-    button.id = 'cookieSettingsBtn';
-    button.innerHTML = `
-        <svg class="cookie-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-        </svg>
-        <span class="cookie-text">Ρυθμίσεις</span>
-    `;
-    
-    // Add click handler to show preferences modal
-    button.addEventListener('click', () => {
-        // Try different methods to show preferences modal
-        if (CookieConsent) {
-            if (CookieConsent.showPreferences) {
-                CookieConsent.showPreferences();
-            } else if (CookieConsent.show) {
-                CookieConsent.show();
-            } else {
-                // Fallback: trigger click on existing preferences button
-                const existingBtn = document.querySelector('[data-cc="show-preferencesModal"]');
-                if (existingBtn) {
-                    existingBtn.click();
-                }
-            }
-        }
-    });
-
-    // Add to page
-    document.body.appendChild(button);
 
     // Show the button with animation
     setTimeout(() => {
@@ -344,14 +314,14 @@ function showFloatingButtonAfterInteraction() {
         if (e.target.matches('[data-cc="accept-all"], [data-cc="reject-all"], [data-cc="show-preferencesModal"], .cc-btn, .cc-accept, .cc-reject, .cc-customize')) {
             // Show floating button after a short delay
             setTimeout(() => {
-                createFloatingCookieButton();
+                showFloatingCookieButton();
             }, 1000);
         }
     });
     
     // Also show button after 5 seconds regardless (fallback)
     setTimeout(() => {
-        createFloatingCookieButton();
+        showFloatingCookieButton();
     }, 5000);
 }
 
