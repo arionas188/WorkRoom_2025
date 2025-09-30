@@ -142,6 +142,13 @@ body {
 .custom-color-line {
   color:#85ccd1;
 }
+
+.custom-color-text > section  h1 , h2  {
+  color:#85ccd1;
+}
+.custom-color-border {
+  border-color: rgb(133, 204, 209) ;
+}
 .circular-img {
   width: 100px;
   height: 100px;
