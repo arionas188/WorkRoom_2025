@@ -237,7 +237,7 @@
               <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">
                 <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                   <div class="sm:col-span-2">
-                    <form id="contact-form" method="POST" action="process-contact.php" class="space-y-6">
+                    <form id="contact-form" method="POST" action="process-contact-simple.php" class="space-y-6">
                       <!-- CSRF Protection -->
                       <input type="hidden" name="csrf_token" id="csrf_token" value="">
                       
@@ -523,7 +523,7 @@
           const formData = new FormData(form);
           
           // Submit to PHP
-          fetch('process-contact.php', {
+          fetch('process-contact-simple.php', {
             method: 'POST',
             body: formData
           })

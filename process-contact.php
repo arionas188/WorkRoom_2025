@@ -20,15 +20,21 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// Configuration
-$config = [
-    'admin_email' => 'workroomarchdesign@gmail.com', // Αλλάξτε με το email σας
-    'site_name' => 'WorkRoom W - Αρχιτεκτονικό Γραφείο',
-    'max_submissions_per_hour' => 5,
-    'max_submissions_per_day' => 20,
-    'log_file' => 'contact_logs.txt',
-    'rate_limit_file' => 'rate_limit.json'
-];
+// Load configuration
+if (file_exists('config.php')) {
+    $config = include 'config.php';
+} else {
+    // Fallback configuration
+    $config = [
+        'admin_email' => 'samalaigkonstantinos@gmail.com',
+        'site_name' => 'WorkRoom W - Αρχιτεκτονικό Γραφείο',
+        'site_url' => 'https://arionaskonstantinostest.xyz/',
+        'max_submissions_per_hour' => 5,
+        'max_submissions_per_day' => 20,
+        'log_file' => 'logs/contact_logs.txt',
+        'rate_limit_file' => 'logs/rate_limit.json'
+    ];
+}
 
 // Rate Limiting Class
 class RateLimiter {

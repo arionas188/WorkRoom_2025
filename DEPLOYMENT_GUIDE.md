@@ -44,7 +44,8 @@ scp -r user@local:/path/to/project/* ./
 ```bash
 mkdir logs
 chmod 755 logs
-```
+[loipon fitaxneis ena arxeio logs sto fakelo pou exeis to project soy kai meta to push sto git kai apo ekei sto server pou exeis to site]
+``` 
 
 ### **3. Ρύθμιση permissions**
 ```bash
