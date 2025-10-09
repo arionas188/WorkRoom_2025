@@ -6,9 +6,9 @@
 
 return [
     // Email Settings
-    'admin_email' => 'workroomarchdesign@gmail.com', // Αλλάξτε με το email σας
+    'admin_email' => 'samalaigkonstantinos@gmail.com', // Αλλάξτε με το email σας
     'site_name' => 'WorkRoom W - Αρχιτεκτονικό Γραφείο',
-    'site_url' => 'https://workroom.gr', // Αλλάξτε με το domain σας
+    'site_url' => 'https://arionaskonstantinostest.xyz/', // Αλλάξτε με το domain σας
     
     // Rate Limiting
     'max_submissions_per_hour' => 5,  // Μέγιστο 5 μηνύματα ανά ώρα
