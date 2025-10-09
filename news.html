@@ -225,6 +225,143 @@
               </div>
             </div>
           </div>
+
+          <!-- Contact Form Section START -->
+          <div class="bg-gray-50 py-24 sm:py-32">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+              <div class="mx-auto max-w-2xl lg:mx-0">
+                <h2 class="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">Επικοινωνήστε μαζί μας</h2>
+                <p class="mt-2 text-lg/8 text-gray-600">Στείλτε μας το μήνυμά σας και θα σας απαντήσουμε το συντομότερο δυνατό.</p>
+              </div>
+              
+              <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">
+                <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+                  <div class="sm:col-span-2">
+                    <form id="contact-form" method="POST" action="process-contact.php" class="space-y-6">
+                      <!-- CSRF Protection -->
+                      <input type="hidden" name="csrf_token" id="csrf_token" value="">
+                      
+                      <!-- Honeypot field για spam protection -->
+                      <div class="hidden">
+                        <label>Don't fill this out if you're human: <input name="website" tabindex="-1" autocomplete="off" /></label>
+                      </div>
+                      
+                      <!-- Success/Error Messages -->
+                      <div id="form-messages" class="hidden">
+                        <div id="success-message" class="hidden rounded-md bg-green-50 p-4">
+                          <div class="flex">
+                            <div class="flex-shrink-0">
+                              <svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                              </svg>
+                            </div>
+                            <div class="ml-3">
+                              <p class="text-sm font-medium text-green-800">Το μήνυμά σας στάλθηκε επιτυχώς! Θα σας απαντήσουμε σύντομα.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="error-message" class="hidden rounded-md bg-red-50 p-4">
+                          <div class="flex">
+                            <div class="flex-shrink-0">
+                              <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                              </svg>
+                            </div>
+                            <div class="ml-3">
+                              <p class="text-sm font-medium text-red-800">Υπήρξε ένα σφάλμα κατά την αποστολή. Παρακαλώ δοκιμάστε ξανά.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="sm:col-span-2">
+                        <label for="name" class="block text-sm font-semibold leading-6 text-gray-900">Όνομα *</label>
+                        <div class="mt-2.5">
+                          <input type="text" name="name" id="name" required class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        </div>
+                      </div>
+                      
+                      <div class="sm:col-span-2">
+                        <label for="email" class="block text-sm font-semibold leading-6 text-gray-900">Email *</label>
+                        <div class="mt-2.5">
+                          <input type="email" name="email" id="email" required class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        </div>
+                      </div>
+                      
+                      <div class="sm:col-span-2">
+                        <label for="phone" class="block text-sm font-semibold leading-6 text-gray-900">Τηλέφωνο</label>
+                        <div class="mt-2.5">
+                          <input type="tel" name="phone" id="phone" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        </div>
+                      </div>
+                      
+                      <div class="sm:col-span-2">
+                        <label for="subject" class="block text-sm font-semibold leading-6 text-gray-900">Θέμα *</label>
+                        <div class="mt-2.5">
+                          <select name="subject" id="subject" required class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <option value="">Επιλέξτε θέμα</option>
+                            <option value="general">Γενικές πληροφορίες</option>
+                            <option value="project">Νέο έργο</option>
+                            <option value="consultation">Σύμβουλος</option>
+                            <option value="collaboration">Συνεργασία</option>
+                            <option value="other">Άλλο</option>
+                          </select>
+                        </div>
+                      </div>
+                      
+                      <div class="sm:col-span-2">
+                        <label for="message" class="block text-sm font-semibold leading-6 text-gray-900">Μήνυμα *</label>
+                        <div class="mt-2.5">
+                          <textarea name="message" id="message" rows="4" required class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                        </div>
+                      </div>
+
+                      <!-- GDPR Consent -->
+                      <div class="sm:col-span-2">
+                        <div class="flex items-start">
+                          <div class="flex h-6 items-center">
+                            <input id="gdpr-consent" name="gdpr-consent" type="checkbox" required class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                          </div>
+                          <div class="ml-3 text-sm leading-6">
+                            <label for="gdpr-consent" class="font-medium text-gray-900">Συμφωνώ με την επεξεργασία των προσωπικών μου δεδομένων *</label>
+                            <p class="text-gray-500">Συμφωνώ με την <a href="privacy.html" target="_blank" class="text-indigo-600 hover:text-indigo-500">Πολιτική Απορρήτου</a> και την επεξεργασία των προσωπικών μου δεδομένων για την εξυπηρέτηση του αιτήματός μου.</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Marketing Consent (Optional) -->
+                      <div class="sm:col-span-2">
+                        <div class="flex items-start">
+                          <div class="flex h-6 items-center">
+                            <input id="marketing-consent" name="marketing-consent" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                          </div>
+                          <div class="ml-3 text-sm leading-6">
+                            <label for="marketing-consent" class="font-medium text-gray-900">Θέλω να λαμβάνω ενημερώσεις για νέα έργα και προσφορές</label>
+                            <p class="text-gray-500">Μπορείτε να απεγγραφείτε οποιαδήποτε στιγμή.</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="sm:col-span-2">
+                        <button type="submit" class="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                          <span id="submit-text">Αποστολή Μηνύματος</span>
+                          <span id="submit-loading" class="hidden">
+                            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Αποστολή...
+                          </span>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Contact Form Section END -->
+
   <!-- Floating Cookie Settings Button START -->
   <button id="cookieSettingsBtn" data-cc="show-preferencesModal" style="display: none;">
     <img src="images/cookie.png" class="cookie-icon" alt="cookie icon"> 
@@ -347,6 +484,170 @@
     <!-- Core theme JS-->
     <script type="module" src="./js/index.js" ></script>
     <script type="module" src="./js/libraries/cookieconsent-config.js"></script>
+    
+    <!-- Contact Form JavaScript -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('contact-form');
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const submitText = document.getElementById('submit-text');
+        const submitLoading = document.getElementById('submit-loading');
+        const formMessages = document.getElementById('form-messages');
+        const successMessage = document.getElementById('success-message');
+        const errorMessage = document.getElementById('error-message');
+        const csrfToken = document.getElementById('csrf_token');
+
+        // Generate CSRF token
+        csrfToken.value = generateCSRFToken();
+
+        // Handle form submission
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Validate form before submission
+          if (!validateForm()) {
+            return;
+          }
+          
+          // Show loading state
+          submitText.classList.add('hidden');
+          submitLoading.classList.remove('hidden');
+          submitBtn.disabled = true;
+          
+          // Hide previous messages
+          formMessages.classList.add('hidden');
+          successMessage.classList.add('hidden');
+          errorMessage.classList.add('hidden');
+
+          // Create FormData
+          const formData = new FormData(form);
+          
+          // Submit to PHP
+          fetch('process-contact.php', {
+            method: 'POST',
+            body: formData
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              // Success
+              formMessages.classList.remove('hidden');
+              successMessage.classList.remove('hidden');
+              form.reset();
+              
+              // Scroll to success message
+              formMessages.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+              throw new Error(data.message || 'Unknown error');
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            // Show error message
+            formMessages.classList.remove('hidden');
+            errorMessage.classList.remove('hidden');
+            
+            // Scroll to error message
+            formMessages.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          })
+          .finally(() => {
+            // Reset button state
+            submitText.classList.remove('hidden');
+            submitLoading.classList.add('hidden');
+            submitBtn.disabled = false;
+          });
+        });
+
+        // Form validation
+        function validateForm() {
+          let isValid = true;
+          const requiredFields = form.querySelectorAll('[required]');
+          
+          requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+              field.classList.add('ring-red-500');
+              field.classList.remove('ring-gray-300');
+              isValid = false;
+            } else {
+              field.classList.remove('ring-red-500');
+              field.classList.add('ring-gray-300');
+            }
+          });
+
+          // Email validation
+          const emailField = document.getElementById('email');
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (emailField.value && !emailRegex.test(emailField.value)) {
+            emailField.classList.add('ring-red-500');
+            emailField.classList.remove('ring-gray-300');
+            isValid = false;
+          }
+
+          // Phone validation (optional)
+          const phoneField = document.getElementById('phone');
+          const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
+          if (phoneField.value && !phoneRegex.test(phoneField.value)) {
+            phoneField.classList.add('ring-red-500');
+            phoneField.classList.remove('ring-gray-300');
+            isValid = false;
+          }
+
+          // GDPR consent validation
+          const gdprConsent = document.getElementById('gdpr-consent');
+          if (!gdprConsent.checked) {
+            gdprConsent.classList.add('ring-red-500');
+            isValid = false;
+          }
+
+          return isValid;
+        }
+
+        // Real-time validation
+        const requiredFields = form.querySelectorAll('[required]');
+        requiredFields.forEach(field => {
+          field.addEventListener('blur', function() {
+            if (!this.value.trim()) {
+              this.classList.add('ring-red-500');
+              this.classList.remove('ring-gray-300');
+            } else {
+              this.classList.remove('ring-red-500');
+              this.classList.add('ring-gray-300');
+            }
+          });
+        });
+
+        // Email validation
+        const emailField = document.getElementById('email');
+        emailField.addEventListener('blur', function() {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (this.value && !emailRegex.test(this.value)) {
+            this.classList.add('ring-red-500');
+            this.classList.remove('ring-gray-300');
+          } else {
+            this.classList.remove('ring-red-500');
+            this.classList.add('ring-gray-300');
+          }
+        });
+
+        // Phone validation (optional)
+        const phoneField = document.getElementById('phone');
+        phoneField.addEventListener('blur', function() {
+          const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
+          if (this.value && !phoneRegex.test(this.value)) {
+            this.classList.add('ring-red-500');
+            this.classList.remove('ring-gray-300');
+          } else {
+            this.classList.remove('ring-red-500');
+            this.classList.add('ring-gray-300');
+          }
+        });
+
+        // Generate CSRF token
+        function generateCSRFToken() {
+          return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+        }
+      });
+    </script>
   </body>
 
 </html>
