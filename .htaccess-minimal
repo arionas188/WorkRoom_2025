@@ -1,0 +1,45 @@
+# Minimal .htaccess for WorkRoom W
+# Only essential directives that work on all hosting
+
+# Prevent access to sensitive files
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "log-manager.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "*.log">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "*.json">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "pending_emails.txt">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "error_log.txt">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Prevent access to backup files
+<FilesMatch "\.(bak|backup|old|tmp)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Prevent directory browsing
+Options -Indexes
+
+# Default charset
+AddDefaultCharset UTF-8
