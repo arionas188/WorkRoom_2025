@@ -63,7 +63,7 @@
     
     # Block requests without referer (except direct access)
     RewriteCond %{HTTP_REFERER} !^$
-    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?yourdomain\.com [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?arionaskonstantinos\.xyz [NC]
     RewriteRule ^process-contact\.php$ - [F,L]
 </IfModule>
 
