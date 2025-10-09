@@ -40,11 +40,11 @@
     Deny from all
 </Files>
 
-# Protect logs directory
-<Directory "logs">
+# Protect logs directory (using FilesMatch instead of Directory)
+<FilesMatch "^logs/">
     Order Allow,Deny
     Deny from all
-</Directory>
+</FilesMatch>
 
 # Prevent access to backup files
 <FilesMatch "\.(bak|backup|old|tmp)$">
