@@ -14,8 +14,8 @@
       security_storage: 'denied'
     });
   </script>
-  <!-- Google tag (gtag.js) - μόνο loader, χωρίς config πριν τη συγκατάθεση -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2SYFJ7QR4Q"></script>
+  <!-- Google tag (gtag.js) - Defer για καλύτερη απόδοση -->
+  <script defer src="https://www.googletagmanager.com/gtag/js?id=G-2SYFJ7QR4Q"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -446,7 +446,19 @@
   <!-- Tailwind CDN - Μετακινήθηκε εδώ για καλύτερη απόδοση -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" defer></script>
   
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
+  <!-- TailwindPlus Elements - Conditional Loading (φορτώνει μόνο αν ανοίξει το mobile menu) -->
+  <script type="module">
+    // Φόρτωση μόνο όταν χρειάζεται (on mobile menu open)
+    const mobileMenuBtn = document.querySelector('[commandfor="mobile-menu"]');
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', async () => {
+        if (!window.customElements.get('el-dialog')) {
+          await import('https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1');
+        }
+      }, { once: true });
+    }
+  </script>
+  
   <!-- Core theme JS-->
   <script type="module" src="./js/index.js" ></script>
   <script type="module" src="./js/libraries/cookieconsent-config.js"></script>
