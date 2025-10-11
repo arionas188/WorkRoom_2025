@@ -69,8 +69,9 @@
   <link href="style-cookies.css" rel="stylesheet" >
   <!-- Custom CSS Style -->
   <link href="style.css" rel="stylesheet" >
-  <!-- link https://animate.style -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <!-- Preload animate.css for better performance -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"></noscript>
   <!-- Structured Data (JSON-LD) for Rich Snippets -->
   <script type="application/ld+json">
     {
@@ -98,6 +99,7 @@
       "keywords": "WorkRoom W - Architecture & Design in Larissa, Greece. Interior design by WorkRoom W"
     }
   </script>
+  <!-- Face-API - Conditional Loading: Only loaded on index.html (used for face detection in team section) -->
   <script defer src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.min.js"></script>
   
     
@@ -110,7 +112,7 @@
         <div class="flex ">
           <a href="#" class="-m-1.5 p-1.5">
             <span class="sr-only">Your Company</span>
-            <img src="images/logo_V.png" alt="" class="h-8 w-auto" />
+            <img src="images/logo_V.png" alt="WorkRoom W Logo - Architecture & Design" class="h-8 w-auto" />
           </a>
         </div>
         <div class="hidden md:flex justify-center col-span-2 gap-4">
@@ -137,7 +139,7 @@
             <div class="flex items-center justify-between">
               <a href="#" class="-m-1.5 p-1.5">
                 <span class="sr-only">Your Company</span>
-                <img src="images/logo_W.png" alt="" class="h-8 w-auto" />
+                <img src="images/logo_W.png" alt="WorkRoom W Logo - Architecture & Design" class="h-8 w-auto" />
               </a>
               <button type="button" command="close" commandfor="mobile-menu" class="-m-2.5 rounded-md p-2.5 text-black-500">
                 <span class="sr-only">Close menu</span>
@@ -180,7 +182,7 @@
     <section id="about-us" class="h-fit   ">
       <!-- Img About Us START -->
       <div class="-z-50 h-96   ">
-        <img src="images/about_us_1.webp" alt="background image for services" class="brightness-50 -z-50 size-full object-cover object-center" loading="lazy" width="1920" height="384">
+        <img src="images/about_us_1.webp" alt="WorkRoom W - About Us - Architecture office workspace in Larissa" class="brightness-50 -z-50 size-full object-cover object-center" loading="lazy" width="1920" height="384">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div class="relative -top-80 z-50">
             <p class="text-sm font-semibold uppercase tracking-[0.3em] text-gray-300">About us</p>
@@ -193,7 +195,7 @@
         <div class="flex flex-col items-center justify-center h-auto m-6 md:w-1/2  custom-footer-border-top custom-footer-border-bottom rounded-xl shadow-xl/30  custom-footer-border-top custom-footer-border-bottom bg-white/50 backdrop-blur-md ">
           <!-- Logo START -->
           <div class="flex flex-row items-center justify-center w-fit my-4">
-            <img src="images/logo_W.webp" alt="workroom - logo" class="w-1/4 h-auto " loading="lazy" width="200" height="200">
+            <img src="images/logo_W.webp" alt="WorkRoom W Logo - Architecture & Design Studio" class="w-1/4 h-auto " loading="lazy" width="200" height="200">
             <div class="flex flex-col  ">
               <p class="flex justify-center text-shadow-lg/10 font-semibold text-lg md:text-2xl">WorkRoom</p>
               <p class="text-shadow-lg text-md md:text-xl">Architecture & Design</p>      
@@ -218,7 +220,7 @@
     <section id="our-team" class="h-auto bg-[url('images/Our_Team_2.webp')] bg-cover bg-center brightness-90 mb-12">
         <!-- Logo START -->
         <div class="flex flex-row items-center justify-center w-fit ">
-          <img src="images/logo_W.png" alt="workroom - logo" class="w-1/4 h-auto m-2" loading="lazy" width="200" height="200">
+          <img src="images/logo_W.png" alt="WorkRoom W Logo - Our Team Section" class="w-1/4 h-auto m-2" loading="lazy" width="200" height="200">
           <div class="flex flex-row m-2 ">
             <p class="flex justify-center text-shadow-lg/10 font-semibold text-xl md:text-2xl ">Our Team</p>
           </div>
@@ -290,7 +292,7 @@
     <!-- Services - START -->
     <section id="services" class="h-auto  ">
       <div class="-z-50 h-96   ">
-        <img src="images/services.webp" alt="background image for services" class="brightness-50 -z-50 size-full object-cover object-center" loading="lazy" width="1920" height="384">
+        <img src="images/services.webp" alt="WorkRoom W Services - Architecture and Interior Design in Larissa" class="brightness-50 -z-50 size-full object-cover object-center" loading="lazy" width="1920" height="384">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div class="relative -top-80 z-50">
             <p class="text-sm font-semibold uppercase tracking-[0.3em] text-gray-300">Services</p>

@@ -63,8 +63,9 @@
     <link href="style-cookies.css" rel="stylesheet" >
     <!-- Custom CSS Style -->
     <link href="style.css" rel="stylesheet">
-    <!-- link https://animate.style -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Preload animate.css for better performance -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"></noscript>
     <!-- Structured Data (JSON-LD) for Rich Snippets -->
     <script type="application/ld+json">
       {
