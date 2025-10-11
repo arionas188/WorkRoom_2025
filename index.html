@@ -446,18 +446,8 @@
   <!-- Tailwind CDN - Μετακινήθηκε εδώ για καλύτερη απόδοση -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" defer></script>
   
-  <!-- TailwindPlus Elements - Conditional Loading (φορτώνει μόνο αν ανοίξει το mobile menu) -->
-  <script type="module">
-    // Φόρτωση μόνο όταν χρειάζεται (on mobile menu open)
-    const mobileMenuBtn = document.querySelector('[commandfor="mobile-menu"]');
-    if (mobileMenuBtn) {
-      mobileMenuBtn.addEventListener('click', async () => {
-        if (!window.customElements.get('el-dialog')) {
-          await import('https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1');
-        }
-      }, { once: true });
-    }
-  </script>
+  <!-- Conditional Loader - Lazy loading για non-critical scripts -->
+  <script type="module" src="./js/conditionalLoader.js"></script>
   
   <!-- Core theme JS-->
   <script type="module" src="./js/index.js" ></script>
