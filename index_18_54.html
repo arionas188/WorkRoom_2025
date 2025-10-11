@@ -55,22 +55,15 @@
   <meta name="apple-mobile-web-app-title" content="WorkRoom W">
   <meta name="theme-color" content="#ffffff">
   <meta name="msapplication-TileColor" content="#ffffff">
-  
-  <!-- Preconnect για CDN domains (βελτιώνει την ταχύτητα φόρτωσης) -->
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-  
   <!-- link for cookieconsent.css style - default -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
   <!-- link for cookieconsent.css style - custom style -->
   <link href="style-cookies.css" rel="stylesheet" >
+  <!-- link for Tailwindcss v4.1 -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <!-- Custom CSS Style -->
   <link href="style.css" rel="stylesheet" >
   <!-- link https://animate.style -->
-  <!-- ΣΗΜΕΙΩΣΗ: Το Tailwind CDN μετακινήθηκε στο τέλος του body για καλύτερη απόδοση -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <!-- Structured Data (JSON-LD) for Rich Snippets -->
   <script type="application/ld+json">
@@ -181,7 +174,7 @@
     <section id="about-us" class="h-fit   ">
       <!-- Img About Us START -->
       <div class="-z-50 h-96   ">
-        <img src="images/about_us_1.webp" alt="background image for services" class="brightness-50 -z-50 size-full object-cover object-center" loading="lazy" width="1920" height="384">
+        <img src="images/about_us_1.webp" alt="background image for services" class="brightness-50 -z-50 size-full object-cover object-center" >
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div class="relative -top-80 z-50">
             <p class="text-sm font-semibold uppercase tracking-[0.3em] text-gray-300">About us</p>
@@ -194,7 +187,7 @@
         <div class="flex flex-col items-center justify-center h-auto m-6 md:w-1/2  custom-footer-border-top custom-footer-border-bottom rounded-xl shadow-xl/30  custom-footer-border-top custom-footer-border-bottom bg-white/50 backdrop-blur-md ">
           <!-- Logo START -->
           <div class="flex flex-row items-center justify-center w-fit my-4">
-            <img src="images/logo_W.webp" alt="workroom - logo" class="w-1/4 h-auto " loading="lazy" width="200" height="200">
+            <img src="images/logo_W.webp" alt="workroom - logo" class="w-1/4 h-auto ">
             <div class="flex flex-col  ">
               <p class="flex justify-center text-shadow-lg/10 font-semibold text-lg md:text-2xl">WorkRoom</p>
               <p class="text-shadow-lg text-md md:text-xl">Architecture & Design</p>      
@@ -219,7 +212,7 @@
     <section id="our-team" class="h-auto bg-[url('images/Our_Team_2.webp')] bg-cover bg-center brightness-90 mb-12">
         <!-- Logo START -->
         <div class="flex flex-row items-center justify-center w-fit ">
-          <img src="images/logo_W.png" alt="workroom - logo" class="w-1/4 h-auto m-2" loading="lazy" width="200" height="200">
+          <img src="images/logo_W.png" alt="workroom - logo" class="w-1/4 h-auto m-2">
           <div class="flex flex-row m-2 ">
             <p class="flex justify-center text-shadow-lg/10 font-semibold text-xl md:text-2xl ">Our Team</p>
           </div>
@@ -235,7 +228,7 @@
             <div class="h-96  m-6 rounded-xl shadow-xl/30 custom-footer-border-top custom-footer-border-bottom m-6 bg-white/5 backdrop-blur-md">
               <div class="flex justify-center ">
                 <div class="m-2" >
-                  <img id="profile-img" class="circular-img" src="images/Matina.webp" alt="Boukouvala Matina - Architect" loading="lazy" width="150" height="150">
+                  <img id="profile-img" class="circular-img" src="images/Matina.webp" alt="">
                 </div>
                 <div class="flex flex-col items-center justify-center m-4 ">
                   <p class="flex justify-center text-center text-shadow-lg/10 font-semibold text-lg md:text-2xl">Boukouvala<br>Matina</p>
@@ -260,7 +253,7 @@
             <div class="h-96  m-6 rounded-xl shadow-xl/30 custom-footer-border-top custom-footer-border-bottom m-6 bg-white/5 backdrop-blur-md">
               <div class="flex justify-center ">
                 <div class="m-2" >
-                  <img id="profile-img" class="circular-img" src="images/Matina.webp" alt="Boukouvala Matina - Architect" loading="lazy" width="150" height="150">
+                  <img id="profile-img" class="circular-img" src="images/Matina.webp" alt="">
                 </div>
                 <div class="flex flex-col items-center justify-center m-4 ">
                   <p class="flex justify-center text-center text-shadow-lg/10 font-semibold text-lg md:text-2xl">Boukouvala<br>Matina</p>
@@ -291,7 +284,7 @@
     <!-- Services - START -->
     <section id="services" class="h-auto  ">
       <div class="-z-50 h-96   ">
-        <img src="images/services.webp" alt="background image for services" class="brightness-50 -z-50 size-full object-cover object-center" loading="lazy" width="1920" height="384">
+        <img src="images/services.webp" alt="background image for services" class="brightness-50 -z-50 size-full object-cover object-center" >
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div class="relative -top-80 z-50">
             <p class="text-sm font-semibold uppercase tracking-[0.3em] text-gray-300">Services</p>
@@ -342,7 +335,7 @@
       <div class="flex flex-col justify-start ">
         <!-- Logo Start -->
         <div class="basis-1/4 flex flex-col ">
-          <a  class="flex justify-center items-center"  href="./index.html"><img class="w-1/4 h-auto p-2 md:w-32" src="images/logo_W.png" alt="WorkRoom Logo - Architecture & Design - Larisa" loading="lazy" width="128" height="128"/></a>
+          <a  class="flex justify-center items-center"  href="./index.html"><img class="w-1/4 h-auto p-2 md:w-32" src="images/logo_W.png" alt="WorkRoom Logo - Architecture & Design - Larisa"/></a>
         </div>
         <!-- End  Logo -->
       </div>
@@ -440,9 +433,6 @@
     </div>
   </footer>
 
-  <!-- Tailwind CDN - Μετακινήθηκε εδώ για καλύτερη απόδοση -->
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" defer></script>
-  
   <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
   <!-- Core theme JS-->
   <script type="module" src="./js/index.js" ></script>
