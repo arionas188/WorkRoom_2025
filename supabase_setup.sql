@@ -190,7 +190,7 @@ END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 
 -- 8. INSERT SUPER ADMIN
--- ΣΗΜΑΝΤΙΚΟ: Αλλάξτε το email αν χρειάζεται
+-- Email: arionaskonstantinos@me.com (Super Admin)
 -- Αυτό θα δημιουργηθεί μετά το πρώτο signup στο Supabase Auth
 -- Για τώρα, απλά δημιουργούμε ένα placeholder entry
 
