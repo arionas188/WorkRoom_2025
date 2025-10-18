@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - WorkRoom W</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        .modal {
+            display: none;
+        }
+        .modal.active {
+            display: flex;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <img src="images/logo_W.png" alt="WorkRoom W" class="h-12">
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-900">Admin Dashboard</h1>
+                        <p class="text-sm text-gray-600">Welcome, <span id="admin-name" class="font-semibold"></span></p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span id="admin-role" class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-semibold"></span>
+                    <button id="logout-btn" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Statistics Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <!-- Total Messages -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600">Total Messages</p>
+                        <p id="stat-total" class="text-3xl font-bold text-gray-900">0</p>
+                    </div>
+                    <div class="p-3 bg-blue-100 rounded-lg">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unread Messages -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600">Unread Messages</p>
+                        <p id="stat-unread" class="text-3xl font-bold text-orange-600">0</p>
+                    </div>
+                    <div class="p-3 bg-orange-100 rounded-lg">
+                        <svg class="w-8 h-8 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Today Messages -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600">Today</p>
+                        <p id="stat-today" class="text-3xl font-bold text-green-600">0</p>
+                    </div>
+                    <div class="p-3 bg-green-100 rounded-lg">
+                        <svg class="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Archived Messages -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600">Archived</p>
+                        <p id="stat-archived" class="text-3xl font-bold text-gray-600">0</p>
+                    </div>
+                    <div class="p-3 bg-gray-100 rounded-lg">
+                        <svg class="w-8 h-8 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters and Actions -->
+        <div class="bg-white rounded-lg shadow p-6 mb-8">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+                <div class="flex items-center space-x-4">
+                    <label class="text-sm font-medium text-gray-700">Filter:</label>
+                    <select id="filter-status" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-600">
+                        <option value="all">All Messages</option>
+                        <option value="unread">Unread Only</option>
+                        <option value="read">Read Only</option>
+                        <option value="archived">Archived</option>
+                    </select>
+                    <select id="filter-subject" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-600">
+                        <option value="all">All Subjects</option>
+                        <option value="general">Γενικές Πληροφορίες</option>
+                        <option value="project">Νέο Έργο</option>
+                        <option value="consultation">Σύμβουλος</option>
+                        <option value="collaboration">Συνεργασία</option>
+                        <option value="other">Άλλο</option>
+                    </select>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button id="refresh-btn" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+                        Refresh
+                    </button>
+                    <button id="export-btn" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+                        Export CSV
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Messages Table -->
+        <div class="bg-white rounded-lg shadow overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Subject</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Message</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="messages-tbody" class="bg-white divide-y divide-gray-200">
+                        <!-- Messages will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loading-state" class="p-8 text-center">
+                <svg class="animate-spin h-8 w-8 mx-auto text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <p class="mt-2 text-gray-600">Loading messages...</p>
+            </div>
+
+            <!-- Empty State -->
+            <div id="empty-state" class="hidden p-8 text-center">
+                <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                </svg>
+                <p class="mt-2 text-gray-600">No messages found</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Message Detail Modal -->
+    <div id="message-modal" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-lg shadow-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="sticky top-0 bg-white border-b px-6 py-4 flex justify-between items-center">
+                <h2 class="text-xl font-bold text-gray-900">Message Details</h2>
+                <button id="close-modal" class="text-gray-400 hover:text-gray-600">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            
+            <div id="modal-content" class="p-6">
+                <!-- Content will be loaded here -->
+            </div>
+
+            <div class="sticky bottom-0 bg-gray-50 px-6 py-4 border-t flex justify-end space-x-3">
+                <button id="modal-archive-btn" class="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition">
+                    Archive
+                </button>
+                <button id="modal-delete-btn" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
+                    Delete
+                </button>
+                <button id="modal-reply-btn" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+                    Reply via Email
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Supabase JS Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+        // Initialize Supabase
+        const SUPABASE_URL = 'https://nhocpqwzxxbuggerslwp.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ob2NwcXd6eHhidWdnZXJzbHdwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA2MzE3OTQsImV4cCI6MjA3NjIwNzc5NH0.JXErmmyUeL25lFtAH_IY93e9zdTYMcXSCiK0uFg7oSg';
+        
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        let currentUser = null;
+        let currentAdmin = null;
+        let allMessages = [];
+        let currentMessageId = null;
+
+        const subjectMap = {
+            'general': 'Γενικές Πληροφορίες',
+            'project': 'Νέο Έργο',
+            'consultation': 'Σύμβουλος',
+            'collaboration': 'Συνεργασία',
+            'other': 'Άλλο'
+        };
+
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Check authentication
+            await checkAuth();
+
+            // Load messages
+            await loadMessages();
+
+            // Setup event listeners
+            setupEventListeners();
+
+            // Setup real-time subscriptions
+            setupRealtimeSubscriptions();
+        });
+
+        // Check authentication
+        async function checkAuth() {
+            const { data: { session } } = await supabase.auth.getSession();
+            
+            if (!session) {
+                window.location.href = 'admin-login.html';
+                return;
+            }
+
+            currentUser = session.user;
+
+            // Get admin details
+            const { data: adminData, error } = await supabase
+                .from('admin_users')
+                .select('*')
+                .eq('auth_id', currentUser.id)
+                .eq('is_active', true)
+                .single();
+
+            if (error || !adminData) {
+                await supabase.auth.signOut();
+                window.location.href = 'admin-login.html';
+                return;
+            }
+
+            currentAdmin = adminData;
+
+            // Update UI
+            document.getElementById('admin-name').textContent = adminData.name;
+            document.getElementById('admin-role').textContent = adminData.role === 'super_admin' ? 'Super Admin' : 'Admin';
+        }
+
+        // Load messages
+        async function loadMessages() {
+            try {
+                showLoading();
+
+                const { data, error } = await supabase
+                    .from('contact_messages')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+
+                if (error) throw error;
+
+                allMessages = data;
+                renderMessages(data);
+                updateStatistics(data);
+
+            } catch (error) {
+                console.error('Error loading messages:', error);
+                alert('Failed to load messages: ' + error.message);
+            } finally {
+                hideLoading();
+            }
+        }
+
+        // Render messages
+        function renderMessages(messages) {
+            const tbody = document.getElementById('messages-tbody');
+            const emptyState = document.getElementById('empty-state');
+
+            if (messages.length === 0) {
+                tbody.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+
+            tbody.innerHTML = messages.map(msg => `
+                <tr class="${msg.is_read ? 'bg-white' : 'bg-blue-50'} hover:bg-gray-50 cursor-pointer" data-id="${msg.id}">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        ${msg.is_read 
+                            ? '<span class="px-2 py-1 text-xs font-semibold rounded-full bg-gray-200 text-gray-800">Read</span>'
+                            : '<span class="px-2 py-1 text-xs font-semibold rounded-full bg-blue-200 text-blue-800">Unread</span>'
+                        }
+                        ${msg.is_archived 
+                            ? '<span class="ml-1 px-2 py-1 text-xs font-semibold rounded-full bg-gray-300 text-gray-700">Archived</span>'
+                            : ''
+                        }
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        ${formatDate(msg.created_at)}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                        ${escapeHtml(msg.name)}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                        ${escapeHtml(msg.email)}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                        ${subjectMap[msg.subject] || msg.subject}
+                    </td>
+                    <td class="px-6 py-4 text-sm text-gray-600">
+                        <div class="max-w-xs truncate">${escapeHtml(msg.message)}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
+                        <button onclick="viewMessage('${msg.id}')" class="text-indigo-600 hover:text-indigo-900">View</button>
+                        ${!msg.is_read 
+                            ? `<button onclick="markAsRead('${msg.id}')" class="text-green-600 hover:text-green-900">Mark Read</button>`
+                            : ''
+                        }
+                        ${currentAdmin.role === 'super_admin' 
+                            ? `<button onclick="deleteMessage('${msg.id}')" class="text-red-600 hover:text-red-900">Delete</button>`
+                            : ''
+                        }
+                    </td>
+                </tr>
+            `).join('');
+
+            // Add click handlers for rows
+            tbody.querySelectorAll('tr').forEach(row => {
+                row.addEventListener('click', function(e) {
+                    if (e.target.tagName !== 'BUTTON') {
+                        const id = this.dataset.id;
+                        viewMessage(id);
+                    }
+                });
+            });
+        }
+
+        // Update statistics
+        function updateStatistics(messages) {
+            const total = messages.length;
+            const unread = messages.filter(m => !m.is_read && !m.is_archived).length;
+            const archived = messages.filter(m => m.is_archived).length;
+            const today = messages.filter(m => {
+                const msgDate = new Date(m.created_at).toDateString();
+                const todayDate = new Date().toDateString();
+                return msgDate === todayDate;
+            }).length;
+
+            document.getElementById('stat-total').textContent = total;
+            document.getElementById('stat-unread').textContent = unread;
+            document.getElementById('stat-archived').textContent = archived;
+            document.getElementById('stat-today').textContent = today;
+        }
+
+        // View message detail
+        async function viewMessage(id) {
+            currentMessageId = id;
+            const message = allMessages.find(m => m.id === id);
+            
+            if (!message) return;
+
+            // Mark as read if unread
+            if (!message.is_read) {
+                await markAsRead(id, false);
+            }
+
+            // Build modal content
+            const modalContent = document.getElementById('modal-content');
+            modalContent.innerHTML = `
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">From</label>
+                        <p class="text-gray-900">${escapeHtml(message.name)}</p>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Email</label>
+                        <p class="text-gray-900">${escapeHtml(message.email)}</p>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Phone</label>
+                        <p class="text-gray-900">${message.phone || 'Not provided'}</p>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Subject</label>
+                        <p class="text-gray-900">${subjectMap[message.subject] || message.subject}</p>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Message</label>
+                        <p class="text-gray-900 whitespace-pre-wrap">${escapeHtml(message.message)}</p>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">GDPR Consent</label>
+                        <p class="text-gray-900">${message.gdpr_consent ? 'Yes' : 'No'}</p>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Marketing Consent</label>
+                        <p class="text-gray-900">${message.marketing_consent ? 'Yes' : 'No'}</p>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Date Received</label>
+                        <p class="text-gray-900">${formatDate(message.created_at)}</p>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">IP Address</label>
+                        <p class="text-gray-600 text-sm">${message.ip_address || 'unknown'}</p>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Admin Notes</label>
+                        <textarea id="admin-notes" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-600" rows="3">${message.admin_notes || ''}</textarea>
+                        <button onclick="saveNotes()" class="mt-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 text-sm">Save Notes</button>
+                    </div>
+                </div>
+            `;
+
+            // Show modal
+            document.getElementById('message-modal').classList.add('active');
+        }
+
+        // Save admin notes
+        async function saveNotes() {
+            const notes = document.getElementById('admin-notes').value;
+
+            try {
+                const { error } = await supabase
+                    .from('contact_messages')
+                    .update({ admin_notes: notes })
+                    .eq('id', currentMessageId);
+
+                if (error) throw error;
+
+                // Update local data
+                const message = allMessages.find(m => m.id === currentMessageId);
+                if (message) message.admin_notes = notes;
+
+                alert('Notes saved successfully!');
+            } catch (error) {
+                console.error('Error saving notes:', error);
+                alert('Failed to save notes: ' + error.message);
+            }
+        }
+
+        // Mark as read
+        async function markAsRead(id, reload = true) {
+            try {
+                const { error } = await supabase
+                    .from('contact_messages')
+                    .update({ 
+                        is_read: true,
+                        read_at: new Date().toISOString()
+                    })
+                    .eq('id', id);
+
+                if (error) throw error;
+
+                if (reload) {
+                    await loadMessages();
+                }
+            } catch (error) {
+                console.error('Error marking as read:', error);
+                alert('Failed to mark as read: ' + error.message);
+            }
+        }
+
+        // Archive message
+        async function archiveMessage(id) {
+            if (!confirm('Are you sure you want to archive this message?')) return;
+
+            try {
+                const { error } = await supabase
+                    .from('contact_messages')
+                    .update({ 
+                        is_archived: true,
+                        archived_at: new Date().toISOString()
+                    })
+                    .eq('id', id);
+
+                if (error) throw error;
+
+                document.getElementById('message-modal').classList.remove('active');
+                await loadMessages();
+            } catch (error) {
+                console.error('Error archiving message:', error);
+                alert('Failed to archive message: ' + error.message);
+            }
+        }
+
+        // Delete message (super admin only)
+        async function deleteMessage(id) {
+            if (currentAdmin.role !== 'super_admin') {
+                alert('Only super admins can delete messages.');
+                return;
+            }
+
+            if (!confirm('Are you sure you want to permanently delete this message?')) return;
+
+            try {
+                const { error } = await supabase
+                    .from('contact_messages')
+                    .delete()
+                    .eq('id', id);
+
+                if (error) throw error;
+
+                document.getElementById('message-modal').classList.remove('active');
+                await loadMessages();
+            } catch (error) {
+                console.error('Error deleting message:', error);
+                alert('Failed to delete message: ' + error.message);
+            }
+        }
+
+        // Reply via email
+        function replyViaEmail() {
+            const message = allMessages.find(m => m.id === currentMessageId);
+            if (!message) return;
+
+            const subject = encodeURIComponent(`Re: ${subjectMap[message.subject] || message.subject}`);
+            const body = encodeURIComponent(`\n\n---\nOriginal message from ${message.name}:\n${message.message}`);
+            
+            window.location.href = `mailto:${message.email}?subject=${subject}&body=${body}`;
+        }
+
+        // Export to CSV
+        function exportToCSV() {
+            const messages = getFilteredMessages();
+            
+            const headers = ['Date', 'Name', 'Email', 'Phone', 'Subject', 'Message', 'Status', 'GDPR', 'Marketing'];
+            const rows = messages.map(msg => [
+                formatDate(msg.created_at),
+                msg.name,
+                msg.email,
+                msg.phone || '',
+                subjectMap[msg.subject] || msg.subject,
+                msg.message,
+                msg.is_archived ? 'Archived' : (msg.is_read ? 'Read' : 'Unread'),
+                msg.gdpr_consent ? 'Yes' : 'No',
+                msg.marketing_consent ? 'Yes' : 'No'
+            ]);
+
+            const csv = [
+                headers.join(','),
+                ...rows.map(row => row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(','))
+            ].join('\n');
+
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `messages-${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+
+        // Filter messages
+        function getFilteredMessages() {
+            const statusFilter = document.getElementById('filter-status').value;
+            const subjectFilter = document.getElementById('filter-subject').value;
+
+            return allMessages.filter(msg => {
+                // Status filter
+                if (statusFilter === 'unread' && msg.is_read) return false;
+                if (statusFilter === 'read' && !msg.is_read) return false;
+                if (statusFilter === 'archived' && !msg.is_archived) return false;
+                if (statusFilter === 'all' && msg.is_archived) return false;
+
+                // Subject filter
+                if (subjectFilter !== 'all' && msg.subject !== subjectFilter) return false;
+
+                return true;
+            });
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Logout
+            document.getElementById('logout-btn').addEventListener('click', async function() {
+                await supabase.auth.signOut();
+                window.location.href = 'admin-login.html';
+            });
+
+            // Refresh
+            document.getElementById('refresh-btn').addEventListener('click', loadMessages);
+
+            // Export
+            document.getElementById('export-btn').addEventListener('click', exportToCSV);
+
+            // Filters
+            document.getElementById('filter-status').addEventListener('change', function() {
+                renderMessages(getFilteredMessages());
+            });
+
+            document.getElementById('filter-subject').addEventListener('change', function() {
+                renderMessages(getFilteredMessages());
+            });
+
+            // Modal
+            document.getElementById('close-modal').addEventListener('click', function() {
+                document.getElementById('message-modal').classList.remove('active');
+            });
+
+            document.getElementById('modal-archive-btn').addEventListener('click', function() {
+                archiveMessage(currentMessageId);
+            });
+
+            document.getElementById('modal-delete-btn').addEventListener('click', function() {
+                deleteMessage(currentMessageId);
+            });
+
+            document.getElementById('modal-reply-btn').addEventListener('click', replyViaEmail);
+
+            // Close modal on outside click
+            document.getElementById('message-modal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                }
+            });
+        }
+
+        // Setup realtime subscriptions
+        function setupRealtimeSubscriptions() {
+            supabase
+                .channel('contact_messages_changes')
+                .on('postgres_changes', 
+                    { event: '*', schema: 'public', table: 'contact_messages' },
+                    (payload) => {
+                        console.log('Change received!', payload);
+                        loadMessages();
+                    }
+                )
+                .subscribe();
+        }
+
+        // Utility functions
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleString('el-GR', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, m => map[m]);
+        }
+
+        function showLoading() {
+            document.getElementById('loading-state').classList.remove('hidden');
+            document.getElementById('empty-state').classList.add('hidden');
+            document.getElementById('messages-tbody').innerHTML = '';
+        }
+
+        function hideLoading() {
+            document.getElementById('loading-state').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
+

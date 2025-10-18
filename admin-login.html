@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - WorkRoom W</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+    <div class="w-full max-w-md">
+        <!-- Login Card -->
+        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 p-8 text-center">
+                <div class="mb-4">
+                    <img src="images/logo_W.png" alt="WorkRoom W Logo" class="h-16 mx-auto">
+                </div>
+                <h1 class="text-3xl font-bold text-white">Admin Login</h1>
+                <p class="text-indigo-100 mt-2">WorkRoom W Dashboard</p>
+            </div>
+
+            <!-- Login Form -->
+            <div class="p-8">
+                <!-- Alert Messages -->
+                <div id="alert-container" class="hidden mb-6"></div>
+
+                <form id="login-form" class="space-y-6">
+                    <!-- Email Field -->
+                    <div>
+                        <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">
+                            Email Address
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                            autocomplete="email"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition duration-200"
+                            placeholder="your.email@example.com"
+                        >
+                    </div>
+
+                    <!-- Password Field -->
+                    <div>
+                        <label for="password" class="block text-sm font-semibold text-gray-700 mb-2">
+                            Password
+                        </label>
+                        <div class="relative">
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                required
+                                autocomplete="current-password"
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition duration-200"
+                                placeholder="••••••••"
+                            >
+                            <button
+                                type="button"
+                                id="toggle-password"
+                                class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                            >
+                                <svg id="eye-open" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                                <svg id="eye-closed" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me -->
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input
+                                type="checkbox"
+                                id="remember-me"
+                                name="remember-me"
+                                class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                            >
+                            <label for="remember-me" class="ml-2 block text-sm text-gray-700">
+                                Remember me
+                            </label>
+                        </div>
+                        <div class="text-sm">
+                            <a href="#" id="forgot-password-link" class="font-medium text-indigo-600 hover:text-indigo-500">
+                                Forgot password?
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button
+                        type="submit"
+                        id="submit-btn"
+                        class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold py-3 px-4 rounded-lg hover:from-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        <span id="submit-text">Sign In</span>
+                        <span id="submit-loading" class="hidden">
+                            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Signing in...
+                        </span>
+                    </button>
+                </form>
+
+                <!-- First Time Setup -->
+                <div class="mt-6 text-center">
+                    <p class="text-sm text-gray-600">
+                        First time here? 
+                        <a href="#" id="signup-link" class="font-medium text-indigo-600 hover:text-indigo-500">
+                            Create account
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="bg-gray-50 px-8 py-4 text-center text-sm text-gray-600 border-t">
+                <p>© <span id="year"></span> WorkRoom W. All rights reserved.</p>
+            </div>
+        </div>
+
+        <!-- Security Notice -->
+        <div class="mt-6 text-center">
+            <p class="text-sm text-white opacity-90">
+                🔒 Secured with Supabase Authentication
+            </p>
+        </div>
+    </div>
+
+    <!-- Supabase JS Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <script>
+        // Initialize Supabase
+        const SUPABASE_URL = 'https://nhocpqwzxxbuggerslwp.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ob2NwcXd6eHhidWdnZXJzbHdwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA2MzE3OTQsImV4cCI6MjA3NjIwNzc5NH0.JXErmmyUeL25lFtAH_IY93e9zdTYMcXSCiK0uFg7oSg';
+        
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // Allowed admin emails
+        const ALLOWED_ADMINS = [
+            'arionaskonstantinos@me.com'
+            // Add up to 4 more emails here
+            // , 'admin2@example.com'
+            // , 'admin3@example.com'
+            // , 'admin4@example.com'
+            // , 'admin5@example.com'
+        ];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // Check if already logged in
+            checkAuthStatus();
+
+            // Form elements
+            const form = document.getElementById('login-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const submitText = document.getElementById('submit-text');
+            const submitLoading = document.getElementById('submit-loading');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const togglePassword = document.getElementById('toggle-password');
+            const eyeOpen = document.getElementById('eye-open');
+            const eyeClosed = document.getElementById('eye-closed');
+
+            // Toggle password visibility
+            togglePassword.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                eyeOpen.classList.toggle('hidden');
+                eyeClosed.classList.toggle('hidden');
+            });
+
+            // Handle form submission
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                const email = emailInput.value.trim();
+                const password = passwordInput.value;
+
+                // Validate email is in allowed list
+                if (!ALLOWED_ADMINS.includes(email)) {
+                    showAlert('error', 'Access denied. Your email is not authorized.');
+                    return;
+                }
+
+                // Show loading state
+                submitText.classList.add('hidden');
+                submitLoading.classList.remove('hidden');
+                submitBtn.disabled = true;
+
+                try {
+                    // Sign in with Supabase
+                    const { data, error } = await supabase.auth.signInWithPassword({
+                        email: email,
+                        password: password
+                    });
+
+                    if (error) throw error;
+
+                    // Check if user has admin record
+                    const { data: adminData, error: adminError } = await supabase
+                        .from('admin_users')
+                        .select('*')
+                        .eq('email', email)
+                        .eq('is_active', true)
+                        .single();
+
+                    if (adminError || !adminData) {
+                        // Sign out if no admin record
+                        await supabase.auth.signOut();
+                        throw new Error('No admin access found for this account.');
+                    }
+
+                    // Update last login
+                    await supabase
+                        .from('admin_users')
+                        .update({ last_login: new Date().toISOString() })
+                        .eq('id', adminData.id);
+
+                    // Log activity
+                    await supabase.rpc('log_admin_activity', {
+                        p_action: 'login',
+                        p_details: { email: email }
+                    });
+
+                    // Success! Redirect to dashboard
+                    showAlert('success', 'Login successful! Redirecting...');
+                    
+                    setTimeout(() => {
+                        window.location.href = 'admin-dashboard.html';
+                    }, 1000);
+
+                } catch (error) {
+                    console.error('Login error:', error);
+                    showAlert('error', error.message || 'Login failed. Please check your credentials.');
+                } finally {
+                    submitText.classList.remove('hidden');
+                    submitLoading.classList.add('hidden');
+                    submitBtn.disabled = false;
+                }
+            });
+
+            // Signup link
+            document.getElementById('signup-link').addEventListener('click', async function(e) {
+                e.preventDefault();
+                
+                const email = prompt('Enter your admin email:');
+                if (!email) return;
+
+                if (!ALLOWED_ADMINS.includes(email)) {
+                    showAlert('error', 'This email is not in the allowed admins list.');
+                    return;
+                }
+
+                const password = prompt('Enter a strong password (min 8 characters):');
+                if (!password || password.length < 8) {
+                    showAlert('error', 'Password must be at least 8 characters long.');
+                    return;
+                }
+
+                const confirmPassword = prompt('Confirm password:');
+                if (password !== confirmPassword) {
+                    showAlert('error', 'Passwords do not match.');
+                    return;
+                }
+
+                try {
+                    // Sign up with Supabase
+                    const { data, error } = await supabase.auth.signUp({
+                        email: email,
+                        password: password,
+                        options: {
+                            data: {
+                                name: email.split('@')[0]
+                            }
+                        }
+                    });
+
+                    if (error) throw error;
+
+                    showAlert('success', 'Account created successfully! Please sign in.');
+                    emailInput.value = email;
+
+                } catch (error) {
+                    console.error('Signup error:', error);
+                    showAlert('error', error.message || 'Signup failed.');
+                }
+            });
+
+            // Forgot password
+            document.getElementById('forgot-password-link').addEventListener('click', async function(e) {
+                e.preventDefault();
+                
+                const email = emailInput.value.trim() || prompt('Enter your email:');
+                if (!email) return;
+
+                try {
+                    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+                        redirectTo: window.location.origin + '/admin-login.html'
+                    });
+
+                    if (error) throw error;
+
+                    showAlert('success', 'Password reset link sent to your email!');
+                } catch (error) {
+                    console.error('Reset password error:', error);
+                    showAlert('error', error.message || 'Failed to send reset link.');
+                }
+            });
+
+            // Check authentication status
+            async function checkAuthStatus() {
+                const { data: { session } } = await supabase.auth.getSession();
+                
+                if (session) {
+                    // User is already logged in, redirect to dashboard
+                    window.location.href = 'admin-dashboard.html';
+                }
+            }
+
+            // Show alert message
+            function showAlert(type, message) {
+                const container = document.getElementById('alert-container');
+                const bgColor = type === 'success' ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800';
+                const icon = type === 'success' 
+                    ? '<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />'
+                    : '<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />';
+
+                container.innerHTML = `
+                    <div class="rounded-md ${bgColor} p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    ${icon}
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm font-medium">${message}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.classList.remove('hidden');
+
+                // Auto-hide after 5 seconds
+                setTimeout(() => {
+                    container.classList.add('hidden');
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>
+

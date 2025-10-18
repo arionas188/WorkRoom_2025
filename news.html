@@ -363,6 +363,144 @@
           </div>
           <!-- Contact Form Section END -->
 
+          <!-- Supabase Contact Form Section START -->
+          <div class="bg-white py-24 sm:py-32 border-t-4 border-indigo-600">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+              <div class="mx-auto max-w-2xl lg:mx-0">
+                <h2 class="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
+                  <span class="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Με αυτή στέλνουμε μήνυμα στη Supabase</span>
+                </h2>
+                <p class="mt-2 text-lg/8 text-gray-600">Τα μηνύματα αποθηκεύονται ασφαλώς στη βάση δεδομένων και εμφανίζονται στο admin dashboard.</p>
+              </div>
+              
+              <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">
+                <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+                  <div class="sm:col-span-2">
+                    <form id="supabase-contact-form" class="space-y-6">
+                      <!-- Honeypot field για spam protection -->
+                      <div class="hidden">
+                        <label>Don't fill this out if you're human: <input name="website_sb" tabindex="-1" autocomplete="off" /></label>
+                      </div>
+                      
+                      <!-- Success/Error Messages -->
+                      <div id="supabase-form-messages" class="hidden">
+                        <div id="supabase-success-message" class="hidden rounded-md bg-green-50 p-4">
+                          <div class="flex">
+                            <div class="flex-shrink-0">
+                              <svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                              </svg>
+                            </div>
+                            <div class="ml-3">
+                              <p class="text-sm font-medium text-green-800">Το μήνυμά σας αποθηκεύτηκε επιτυχώς στη Supabase! Θα σας απαντήσουμε σύντομα.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="supabase-error-message" class="hidden rounded-md bg-red-50 p-4">
+                          <div class="flex">
+                            <div class="flex-shrink-0">
+                              <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                              </svg>
+                            </div>
+                            <div class="ml-3">
+                              <p class="text-sm font-medium text-red-800" id="supabase-error-text">Υπήρξε ένα σφάλμα κατά την αποστολή. Παρακαλώ δοκιμάστε ξανά.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="sm:col-span-2">
+                        <label for="sb-name" class="block text-sm font-semibold leading-6 text-gray-900">Όνομα *</label>
+                        <div class="mt-2.5">
+                          <input type="text" name="name" id="sb-name" required class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        </div>
+                      </div>
+                      
+                      <div class="sm:col-span-2">
+                        <label for="sb-email" class="block text-sm font-semibold leading-6 text-gray-900">Email *</label>
+                        <div class="mt-2.5">
+                          <input type="email" name="email" id="sb-email" required class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        </div>
+                      </div>
+                      
+                      <div class="sm:col-span-2">
+                        <label for="sb-phone" class="block text-sm font-semibold leading-6 text-gray-900">Τηλέφωνο</label>
+                        <div class="mt-2.5">
+                          <input type="tel" name="phone" id="sb-phone" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        </div>
+                      </div>
+                      
+                      <div class="sm:col-span-2">
+                        <label for="sb-subject" class="block text-sm font-semibold leading-6 text-gray-900">Θέμα *</label>
+                        <div class="mt-2.5">
+                          <select name="subject" id="sb-subject" required class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <option value="">Επιλέξτε θέμα</option>
+                            <option value="general">Γενικές Πληροφορίες</option>
+                            <option value="project">Νέο Έργο</option>
+                            <option value="consultation">Σύμβουλος</option>
+                            <option value="collaboration">Συνεργασία</option>
+                            <option value="other">Άλλο</option>
+                          </select>
+                        </div>
+                      </div>
+                      
+                      <div class="sm:col-span-2">
+                        <label for="sb-message" class="block text-sm font-semibold leading-6 text-gray-900">Μήνυμα *</label>
+                        <div class="mt-2.5">
+                          <textarea name="message" id="sb-message" rows="4" required class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                        </div>
+                      </div>
+                      
+                      <!-- GDPR Consent -->
+                      <div class="sm:col-span-2">
+                        <div class="flex items-start">
+                          <div class="flex h-6 items-center">
+                            <input type="checkbox" name="gdpr-consent" id="sb-gdpr-consent" required class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                          </div>
+                          <div class="ml-3 text-sm leading-6">
+                            <label for="sb-gdpr-consent" class="font-medium text-gray-900">
+                              Συμφωνώ με την επεξεργασία των προσωπικών μου δεδομένων *
+                            </label>
+                            <p class="text-gray-500">Διαβάστε την <a href="privacy.html" class="text-indigo-600 hover:text-indigo-500">Πολιτική Απορρήτου</a> μας.</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <!-- Marketing Consent -->
+                      <div class="sm:col-span-2">
+                        <div class="flex items-start">
+                          <div class="flex h-6 items-center">
+                            <input type="checkbox" name="marketing-consent" id="sb-marketing-consent" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                          </div>
+                          <div class="ml-3 text-sm leading-6">
+                            <label for="sb-marketing-consent" class="font-medium text-gray-900">
+                              Θέλω να λαμβάνω ενημερώσεις και προσφορές
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="sm:col-span-2">
+                        <button type="submit" id="sb-submit-btn" class="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-50 disabled:cursor-not-allowed">
+                          <span id="sb-submit-text">Αποστολή στη Supabase</span>
+                          <span id="sb-submit-loading" class="hidden">
+                            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Αποστολή...
+                          </span>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Supabase Contact Form Section END -->
+
   <!-- Floating Cookie Settings Button START -->
   <button id="cookieSettingsBtn" data-cc="show-preferencesModal" style="display: none;">
     <img src="images/cookie.png" class="cookie-icon" alt="cookie icon"> 
@@ -647,6 +785,208 @@
         function generateCSRFToken() {
           return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
         }
+      });
+    </script>
+
+    <!-- Supabase JS Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <!-- Supabase Contact Form JavaScript -->
+    <script>
+      // Initialize Supabase Client
+      const SUPABASE_URL = 'https://nhocpqwzxxbuggerslwp.supabase.co';
+      const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ob2NwcXd6eHhidWdnZXJzbHdwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA2MzE3OTQsImV4cCI6MjA3NjIwNzc5NH0.JXErmmyUeL25lFtAH_IY93e9zdTYMcXSCiK0uFg7oSg';
+      
+      const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+      document.addEventListener('DOMContentLoaded', function() {
+        const sbForm = document.getElementById('supabase-contact-form');
+        const sbSubmitBtn = document.getElementById('sb-submit-btn');
+        const sbSubmitText = document.getElementById('sb-submit-text');
+        const sbSubmitLoading = document.getElementById('sb-submit-loading');
+        const sbFormMessages = document.getElementById('supabase-form-messages');
+        const sbSuccessMessage = document.getElementById('supabase-success-message');
+        const sbErrorMessage = document.getElementById('supabase-error-message');
+        const sbErrorText = document.getElementById('supabase-error-text');
+
+        // Handle Supabase form submission
+        sbForm.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          
+          // Validate form
+          if (!sbValidateForm()) {
+            return;
+          }
+          
+          // Show loading state
+          sbSubmitText.classList.add('hidden');
+          sbSubmitLoading.classList.remove('hidden');
+          sbSubmitBtn.disabled = true;
+          
+          // Hide previous messages
+          sbFormMessages.classList.add('hidden');
+          sbSuccessMessage.classList.add('hidden');
+          sbErrorMessage.classList.add('hidden');
+
+          try {
+            // Get form data
+            const formData = {
+              name: document.getElementById('sb-name').value.trim(),
+              email: document.getElementById('sb-email').value.trim(),
+              phone: document.getElementById('sb-phone').value.trim() || null,
+              subject: document.getElementById('sb-subject').value,
+              message: document.getElementById('sb-message').value.trim(),
+              gdpr_consent: document.getElementById('sb-gdpr-consent').checked,
+              marketing_consent: document.getElementById('sb-marketing-consent').checked,
+              ip_address: await getClientIP(),
+              user_agent: navigator.userAgent
+            };
+
+            // Honeypot check
+            const honeypot = sbForm.querySelector('[name="website_sb"]');
+            if (honeypot && honeypot.value) {
+              throw new Error('Spam detected');
+            }
+
+            // Insert to Supabase
+            const { data, error } = await supabase
+              .from('contact_messages')
+              .insert([formData])
+              .select();
+
+            if (error) throw error;
+
+            // Success!
+            sbFormMessages.classList.remove('hidden');
+            sbSuccessMessage.classList.remove('hidden');
+            sbForm.reset();
+            
+            // Scroll to success message
+            sbFormMessages.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+          } catch (error) {
+            console.error('Supabase Error:', error);
+            
+            // Show error message
+            sbFormMessages.classList.remove('hidden');
+            sbErrorMessage.classList.remove('hidden');
+            sbErrorText.textContent = error.message || 'Υπήρξε ένα σφάλμα κατά την αποστολή. Παρακαλώ δοκιμάστε ξανά.';
+            
+            // Scroll to error message
+            sbFormMessages.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } finally {
+            // Reset button state
+            sbSubmitText.classList.remove('hidden');
+            sbSubmitLoading.classList.add('hidden');
+            sbSubmitBtn.disabled = false;
+          }
+        });
+
+        // Form validation for Supabase form
+        function sbValidateForm() {
+          let isValid = true;
+          const requiredFields = sbForm.querySelectorAll('[required]');
+          
+          requiredFields.forEach(field => {
+            if (field.type === 'checkbox') {
+              if (!field.checked) {
+                field.classList.add('ring-red-500');
+                isValid = false;
+              } else {
+                field.classList.remove('ring-red-500');
+              }
+            } else {
+              if (!field.value.trim()) {
+                field.classList.add('ring-red-500');
+                field.classList.remove('ring-gray-300');
+                isValid = false;
+              } else {
+                field.classList.remove('ring-red-500');
+                field.classList.add('ring-gray-300');
+              }
+            }
+          });
+
+          // Email validation
+          const emailField = document.getElementById('sb-email');
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (emailField.value && !emailRegex.test(emailField.value)) {
+            emailField.classList.add('ring-red-500');
+            emailField.classList.remove('ring-gray-300');
+            isValid = false;
+          }
+
+          // Phone validation (optional)
+          const phoneField = document.getElementById('sb-phone');
+          const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
+          if (phoneField.value && !phoneRegex.test(phoneField.value)) {
+            phoneField.classList.add('ring-red-500');
+            phoneField.classList.remove('ring-gray-300');
+            isValid = false;
+          }
+
+          return isValid;
+        }
+
+        // Get client IP (best effort)
+        async function getClientIP() {
+          try {
+            const response = await fetch('https://api.ipify.org?format=json');
+            const data = await response.json();
+            return data.ip;
+          } catch (error) {
+            console.error('Could not get IP:', error);
+            return 'unknown';
+          }
+        }
+
+        // Real-time validation
+        const sbRequiredFields = sbForm.querySelectorAll('[required]');
+        sbRequiredFields.forEach(field => {
+          field.addEventListener('blur', function() {
+            if (field.type === 'checkbox') {
+              if (!field.checked) {
+                field.classList.add('ring-red-500');
+              } else {
+                field.classList.remove('ring-red-500');
+              }
+            } else {
+              if (!this.value.trim()) {
+                this.classList.add('ring-red-500');
+                this.classList.remove('ring-gray-300');
+              } else {
+                this.classList.remove('ring-red-500');
+                this.classList.add('ring-gray-300');
+              }
+            }
+          });
+        });
+
+        // Email validation
+        const sbEmailField = document.getElementById('sb-email');
+        sbEmailField.addEventListener('blur', function() {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (this.value && !emailRegex.test(this.value)) {
+            this.classList.add('ring-red-500');
+            this.classList.remove('ring-gray-300');
+          } else {
+            this.classList.remove('ring-red-500');
+            this.classList.add('ring-gray-300');
+          }
+        });
+
+        // Phone validation
+        const sbPhoneField = document.getElementById('sb-phone');
+        sbPhoneField.addEventListener('blur', function() {
+          const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
+          if (this.value && !phoneRegex.test(this.value)) {
+            this.classList.add('ring-red-500');
+            this.classList.remove('ring-gray-300');
+          } else {
+            this.classList.remove('ring-red-500');
+            this.classList.add('ring-gray-300');
+          }
+        });
       });
     </script>
   </body>
