@@ -848,20 +848,8 @@
               throw new Error('Spam detected');
             }
 
-            // Create a fresh anon client για το insert (χωρίς session)
-            const anonSupabase = window.supabase.createClient(
-              SUPABASE_URL,
-              SUPABASE_ANON_KEY,
-              {
-                auth: {
-                  persistSession: false,
-                  autoRefreshToken: false
-                }
-              }
-            );
-
-            // Insert to Supabase με anon client
-            const { data, error } = await anonSupabase
+            // Insert to Supabase
+            const { data, error } = await supabase
               .from('contact_messages')
               .insert([formData])
               .select();
