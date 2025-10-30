@@ -203,9 +203,10 @@ RETURNS TRIGGER AS $$
 BEGIN
     -- Ελέγχουμε αν το email είναι στη λίστα των επιτρεπόμενων admins
     IF NEW.email IN (
-        'arionaskonstantinos@me.com'
-        -- Προσθέστε μέχρι 4 ακόμα emails εδώ
-        -- , 'admin2@example.com'
+        'arionaskonstantinos@me.com',
+        'admin2@workroomw.gr'
+        
+        -- Προσθέστε μέχρι 3 ακόμα emails εδώ
         -- , 'admin3@example.com'
         -- , 'admin4@example.com'
         -- , 'admin5@example.com'
